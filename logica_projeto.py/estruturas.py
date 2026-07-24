@@ -6,35 +6,39 @@ def adicionar_elemento():
     """ função global para adicionar elementos 
     independente do tipo de lista """
 
+    pilha_ou_fila.exibir_pilhas_ou_filas()
+    retorno, pilha_e_fila = pilha_ou_fila.selecionar_pilhas_ou_filas()
+
     while True:
         entrada = input('Qual elemento deseja adicionar: ')
         if entrada == '' or not entrada.strip():
             print('\n[ERRO] Espaços vazios não são permitidos!\n')
             continue
         else:
-            print(f'O elemento [{entrada}] foi adicionado ✔️\n')
+            print(f'\nO elemento [{entrada}] foi adicionado a lista de {pilha_e_fila} ✔️\n')
             break
 
-    return entrada
+    return entrada, retorno
 
 def remover_elemento():
 
-    retorno = pilha_ou_fila.selecionar_pilhas_ou_filas()
+    pilha_ou_fila.exibir_pilhas_ou_filas()
+    retorno, pilha_e_fila = pilha_ou_fila.selecionar_pilhas_ou_filas()
 
     if retorno == 1:
-        print('Pilha (LIFO – Last In, First Out / O último que entra é o primeiro a sair)')
+        print('\nPilha (LIFO – Last In, First Out / O último que entra é o primeiro a sair)')
         if lista_pilhas:
-            print(f'Removemos o último item: {lista_pilhas[-1]}')
+            print(f'Removemos o último item: {lista_pilhas[-1]}\n')
             lista_pilhas.pop()
         else:
-            print('A pilha está vazia!')
+            print(f'\nA lista de {pilha_e_fila} está vazia!\n')
     else:
-        print('Fila (FIFO – First In, First Out / O primeiro que entra é o primeiro a sair)')
+        print('\nFila (FIFO – First In, First Out / O primeiro que entra é o primeiro a sair)')
         if lista_filas:
-            print(f'Removemos o primeiro item: {lista_filas[0]}')
+            print(f'Removemos o primeiro item: {lista_filas[0]}\n')
             lista_filas.pop(0)
         else:
-            print('A fila está vazia!')
+            print(f'\nA lista de {pilha_e_fila} está vazia!\n')
 
     return
 
@@ -49,10 +53,8 @@ def rodar_programa():
         opcao = menu_numerado()
         match opcao:
             case 1:
-                
-                pilha_ou_fila.exibir_pilhas_ou_filas()
-                retorno = pilha_ou_fila.selecionar_pilhas_ou_filas()
-                elemento = adicionar_elemento()
+
+                elemento, retorno = adicionar_elemento()
 
                 if retorno == 1:
                     lista_pilhas.append(elemento)
