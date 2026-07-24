@@ -46,7 +46,7 @@ lista_pilhas = []
 lista_filas = []
 pilha_ou_fila = pilhas_ou_filas()
 
-def rodar_programa():
+def run_code():
 
     while True:
         limpar_tela()
@@ -72,4 +72,4 @@ def rodar_programa():
                 print('\nprograma encerrado.\n')
                 break
 
-rodar_programa()
+run_code()
