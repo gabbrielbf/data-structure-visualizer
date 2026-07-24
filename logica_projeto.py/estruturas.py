@@ -18,17 +18,23 @@ def adicionar_elemento():
     return entrada
 
 def remover_elemento():
-    
+
     retorno = pilha_ou_fila.selecionar_pilhas_ou_filas()
 
     if retorno == 1:
-        print('Pilha (LIFO — Last In, First Out / O último que entra é o primeiro a sair)')
-        print(f'Removemos o último item: [{lista_pilhas[-1]}]')
-        del lista_pilhas[-1]
+        print('Pilha (LIFO – Last In, First Out / O último que entra é o primeiro a sair)')
+        if lista_pilhas:
+            print(f'Removemos o último item: {lista_pilhas[-1]}')
+            lista_pilhas.pop()
+        else:
+            print('A pilha está vazia!')
     else:
-        print('Fila (FIFO — First In, First Out / O primeiro que entra é o primeiro a sair)')
-        print(f'Removemos o primeiro item: [{lista_filas[0]}]')
-        del lista_filas[0]
+        print('Fila (FIFO – First In, First Out / O primeiro que entra é o primeiro a sair)')
+        if lista_filas:
+            print(f'Removemos o primeiro item: {lista_filas[0]}')
+            lista_filas.pop(0)
+        else:
+            print('A fila está vazia!')
 
     return
 
