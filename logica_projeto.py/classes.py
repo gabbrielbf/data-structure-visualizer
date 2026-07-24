@@ -3,9 +3,6 @@ from menu import ler_opcao_numerica
 class pilhas_ou_filas:
     """ classe separada para definir o tipo de lista a ser trabalhada """
 
-    def __init__(self):
-        pass
-
     def exibir_pilhas_ou_filas(self):
         """ método responsável por apenas exibir qual será o tipo de lista a ser trabalhada """
 
