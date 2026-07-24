@@ -18,10 +18,23 @@ def adicionar_elemento():
     return entrada
 
 def remover_elemento():
-    pass
+    
+    retorno = pilha_ou_fila.selecionar_pilhas_ou_filas()
+
+    if retorno == 1:
+        print('Pilha (LIFO — Last In, First Out / O último que entra é o primeiro a sair)')
+        print(f'Removemos o último item: [{lista_pilhas[-1]}]')
+        del lista_pilhas[-1]
+    else:
+        print('Fila (FIFO — First In, First Out / O primeiro que entra é o primeiro a sair)')
+        print(f'Removemos o primeiro item: [{lista_filas[0]}]')
+        del lista_filas[0]
+
+    return
 
 lista_pilhas = []
 lista_filas = []
+pilha_ou_fila = pilhas_ou_filas()
 
 def rodar_programa():
 
@@ -31,16 +44,18 @@ def rodar_programa():
         match opcao:
             case 1:
                 
-                pilha_ou_fila = pilhas_ou_filas()
+                pilha_ou_fila.exibir_pilhas_ou_filas()
+                retorno = pilha_ou_fila.selecionar_pilhas_ou_filas()
                 elemento = adicionar_elemento()
 
-                if pilha_ou_fila == 1:
+                if retorno == 1:
                     lista_pilhas.append(elemento)
                 else:
                     lista_filas.append(elemento)
 
             case 2 :
-                pass
+
+                remover_elemento()
 
             case 3:
                 pass
