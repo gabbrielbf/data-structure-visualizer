@@ -14,7 +14,7 @@ def ler_opcao_numerica():
 def limpar_tela():
     """ limpa a tela para manter a interface organizada """
 
-    time.sleep(2)
+    input('Press ENTER to continue...')
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def menu_numerado():
