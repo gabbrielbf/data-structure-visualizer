@@ -20,12 +20,17 @@ class pilhas_ou_filas:
         while True:
 
             pilha_ou_fila = ler_opcao_numerica()
+            pilha_e_fila = None
 
             if (pilha_ou_fila < 1 or
                 pilha_ou_fila > 2): # <- esse bloco de while true serve apenas para definir qual será o caminho traçado pelo usuário após
                 print('[ERRO] opção não encontrada\n') # decidir qual opção dentre as opções, a partir daqui saberemos se ele quer trabalhar com pilhas ou filas
                 continue
             else:
+                if pilha_ou_fila == 1:
+                    pilha_e_fila = 'Pilhas'
+                else:
+                    pilha_e_fila = 'Filas'
                 break
 
-        return pilha_ou_fila
+        return pilha_ou_fila, pilha_e_fila
