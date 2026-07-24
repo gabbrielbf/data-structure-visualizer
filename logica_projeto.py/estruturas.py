@@ -1,6 +1,7 @@
 # estrutura dos dados
 from menu import menu_numerado, limpar_tela
 from classes import pilhas_ou_filas
+from lessons import *
 
 def adicionar_elemento():
     """ função global para adicionar elementos 
@@ -47,6 +48,13 @@ lista_filas = []
 pilha_ou_fila = pilhas_ou_filas()
 
 def run_code():
+
+    print(BANNER)
+    print(INTRO_TEXTO)
+    limpar_tela()
+    print(TEORIA_PILHA)
+    print(DIVISOR)
+    print(TEORIA_FILA)
 
     while True:
         limpar_tela()
