@@ -27,15 +27,15 @@ def remover_elemento():
     retorno, pilha_e_fila = pilha_ou_fila.selecionar_pilhas_ou_filas()
 
     if retorno == 1:
-        print('\nPilha (LIFO – Last In, First Out / O último que entra é o primeiro a sair)')
         if lista_pilhas:
+            print('\nPilha (LIFO – Last In, First Out / O último que entra é o primeiro a sair)')
             print(f'Removemos o último item: {lista_pilhas[-1]}\n')
             lista_pilhas.pop()
         else:
             print(f'\nA lista de {pilha_e_fila} está vazia!\n')
     else:
-        print('\nFila (FIFO – First In, First Out / O primeiro que entra é o primeiro a sair)')
         if lista_filas:
+            print('\nFila (FIFO – First In, First Out / O primeiro que entra é o primeiro a sair)')
             print(f'Removemos o primeiro item: {lista_filas[0]}\n')
             lista_filas.pop(0)
         else:
@@ -48,7 +48,23 @@ def exibir_elementos():
     pilha_ou_fila.exibir_pilhas_ou_filas()
     retorno, pilha_e_fila = pilha_ou_fila.selecionar_pilhas_ou_filas()
 
-    
+    if retorno == 1:
+        if lista_pilhas:
+            print(f'\nExibindo a lista de {pilha_e_fila}:')
+            for indice, item in enumerate(lista_pilhas, start=1):
+                print(f'{indice} - {item}')
+            print()
+        else:
+            print(f'\nA lista de {pilha_e_fila} está vazia!\n')
+    else:
+        if lista_filas:
+            print(f'Exibindo a lista de {pilha_e_fila}:')
+            for indice, item in enumerate(lista_filas, start=1):
+                print(f'{indice} - {item}')
+            print()
+        else:
+            print(f'\nA lista de {pilha_e_fila} está vazia!\n')
+
     return
 
 lista_pilhas = []
@@ -69,21 +85,16 @@ def run_code():
         opcao = menu_numerado()
         match opcao:
             case 1:
-
                 elemento, retorno = adicionar_elemento()
 
                 if retorno == 1:
                     lista_pilhas.append(elemento)
                 else:
                     lista_filas.append(elemento)
-
             case 2 :
-
                 remover_elemento()
-
             case 3:
-                pass
-
+                exibir_elementos()
             case 4:
                 print('\nprograma encerrado.\n')
                 break
