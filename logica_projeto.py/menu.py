@@ -1,4 +1,4 @@
-import os, time
+import os
 
 def ler_opcao_numerica():
     """ função responsável por retornar uma opção numérica sem haver
