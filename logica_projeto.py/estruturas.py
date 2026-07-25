@@ -20,20 +20,18 @@ def elemento():
             print(f'\nO elemento [{entrada}] foi adicionado a lista de {pilha_e_fila} ✔️\n')
             break
 
-    return entrada
+    return entrada, retorno
 
-def adicionar_elemento(elemento):
+def adicionar_elemento(elemento, retorno):
     """ função global para adicionar elementos 
     independente do tipo de lista """
 
-    retorno = 0
-
     if retorno == 1:
-        lista_pilhas.append(elemento) # <- Joga o elemento retornado em sua respectiva lista atráves da segunda variável retornada
+        lista_pilhas.append(elemento) # <- Joga na pilha se o retorno for 1
     else:
-        lista_filas.append(elemento)
-
-    return 
+        lista_filas.append(elemento) # <- Joga na fila se for outro valor (no caso 2)
+        
+    return
 
 def remover_elemento():
     """ função responsável pela remoção dos itens gerais, independente se é PILHA ou FILA pois o que definirá a remoção
@@ -45,15 +43,19 @@ def remover_elemento():
 
     if retorno == 1:
         if lista_pilhas:
+            print('-'*30)
             print('\nPilha (LIFO – Last In, First Out / O último que entra é o primeiro a sair)')
             print(f'Removemos o último item: {lista_pilhas[-1]}\n')
+            print('-'*30)
             lista_pilhas.pop()
         else:
             print(f'\nA lista de {pilha_e_fila} está vazia!\n') # <- variável "pilha_e_fila" criada apenas para exibir dinâmicamente qual lista está
     else:                                                       # sendo manipulada em tempo real
         if lista_filas:
+            print('-'*30)
             print('\nFila (FIFO – First In, First Out / O primeiro que entra é o primeiro a sair)')
             print(f'Removemos o primeiro item: {lista_filas[0]}\n')
+            print('-'*30)
             lista_filas.pop(0)
         else:
             print(f'\nA lista de {pilha_e_fila} está vazia!\n')
@@ -71,17 +73,19 @@ def exibir_elementos():
     if retorno == 1:
         if lista_pilhas:
             print(f'\nExibindo a lista de {pilha_e_fila}:')
+            print('-'*30)
             for indice, item in enumerate(lista_pilhas, start=1):
                 print(f'{indice} - {item}')
-            print()
+            print('-'*30)
         else:
             print(f'\nA lista de {pilha_e_fila} está vazia!\n')
     else:
         if lista_filas:
             print(f'Exibindo a lista de {pilha_e_fila}:')
+            print('-'*30)
             for indice, item in enumerate(lista_filas, start=1):
                 print(f'{indice} - {item}')
-            print()
+            print('-'*30)
         else:
             print(f'\nA lista de {pilha_e_fila} está vazia!\n')
 
@@ -107,8 +111,8 @@ def run_code():
         opcao = menu_numerado()
         match opcao:
             case 1:
-                Elemento = elemento()
-                adicionar_elemento(Elemento)
+                Elemento, retorno = elemento()
+                adicionar_elemento(Elemento, retorno)
             case 2 :
                 remover_elemento()
             case 3:
