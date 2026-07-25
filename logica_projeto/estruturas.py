@@ -138,5 +138,3 @@ def run_code():
                 elif certeza == 'n':
                     print('\nEntão vamos voltar!\n') # <- VOLTA PARA O MENU
                     continue
-
-run_code()
