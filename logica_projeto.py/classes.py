@@ -13,6 +13,8 @@ class pilhas_ou_filas:
         for indice, lista in enumerate(self.opcoes, start=1):
             print(f'{indice} - {lista}')
         print('-'*30)
+        
+        return
 
     def selecionar_pilhas_ou_filas(self):
         """ método responsável por retornar um valor numérico e trabalhar encima desse retorno """

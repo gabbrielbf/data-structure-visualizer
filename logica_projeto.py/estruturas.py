@@ -96,7 +96,22 @@ def run_code():
             case 3:
                 exibir_elementos()
             case 4:
-                print('\nprograma encerrado.\n')
-                break
+                while True:
+                    try:
+                        certeza = str(input('Certeza que deseja encerrar?[S/N]: ')).lower()
+
+                        if certeza != 's' and certeza != 'n':
+                            print('\n[ERRO] Somente [S/N]!')
+                            continue
+                    except ValueError:
+                        print('\n[ERRO] Valor inválido.\n')
+                        continue
+                    break
+                if certeza == 's':
+                    print('\nPrograma encerrado.\n')
+                    break
+                elif certeza == 'n':
+                    print('\nEntão vamos voltar!\n')
+                    continue
 
 run_code()
