@@ -3,14 +3,15 @@ from menu import menu_numerado, limpar_tela
 from classes import pilhas_ou_filas
 from lessons import *
 
-def adicionar_elemento():
-    """ função global para adicionar elementos 
-    independente do tipo de lista """
+def elemento():
+    """ Função criada apenas para deixar o 
+    médodo 1 da função "run_code" mais "enxuto" """
 
     pilha_ou_fila.exibir_pilhas_ou_filas()
-    retorno, pilha_e_fila = pilha_ou_fila.selecionar_pilhas_ou_filas()
+    retorno = pilha_ou_fila.selecionar_pilhas_ou_filas()
+    pilha_e_fila = pilha_ou_fila.retornar_formatado()
 
-    while True: 
+    while True:
         entrada = input('Qual elemento deseja adicionar: ')
         if entrada == '' or not entrada.strip(): # <- Bloco responsável por evitar que o usuário introduza espaços vazios na lista
             print('\n[ERRO] Espaços vazios não são permitidos!\n')
@@ -19,14 +20,28 @@ def adicionar_elemento():
             print(f'\nO elemento [{entrada}] foi adicionado a lista de {pilha_e_fila} ✔️\n')
             break
 
-    return entrada, retorno
+    return entrada
+
+def adicionar_elemento(elemento):
+    """ função global para adicionar elementos 
+    independente do tipo de lista """
+
+    retorno = 0
+
+    if retorno == 1:
+        lista_pilhas.append(elemento) # <- Joga o elemento retornado em sua respectiva lista atráves da segunda variável retornada
+    else:
+        lista_filas.append(elemento)
+
+    return 
 
 def remover_elemento():
     """ função responsável pela remoção dos itens gerais, independente se é PILHA ou FILA pois o que definirá a remoção
     será o retorno da variavel "retorno" presente no método da classe "selecionar_pilhas_ou_filas" """
 
     pilha_ou_fila.exibir_pilhas_ou_filas()
-    retorno, pilha_e_fila = pilha_ou_fila.selecionar_pilhas_ou_filas()
+    retorno = pilha_ou_fila.selecionar_pilhas_ou_filas()
+    pilha_e_fila = pilha_ou_fila.retornar_formatado()
 
     if retorno == 1:
         if lista_pilhas:
@@ -50,7 +65,8 @@ def exibir_elementos():
     gerais seguindo a mesma lógica da função de remoção """
 
     pilha_ou_fila.exibir_pilhas_ou_filas()
-    retorno, pilha_e_fila = pilha_ou_fila.selecionar_pilhas_ou_filas()
+    retorno = pilha_ou_fila.selecionar_pilhas_ou_filas()
+    pilha_e_fila = pilha_ou_fila.retornar_formatado()
 
     if retorno == 1:
         if lista_pilhas:
@@ -91,12 +107,8 @@ def run_code():
         opcao = menu_numerado()
         match opcao:
             case 1:
-                elemento, retorno = adicionar_elemento() # <- Pega o elemento retornado na função
-
-                if retorno == 1:
-                    lista_pilhas.append(elemento) # <- Joga o elemento retornado em sua respectiva lista atráves da segunda variável retornada
-                else:
-                    lista_filas.append(elemento)
+                Elemento = elemento()
+                adicionar_elemento(Elemento)
             case 2 :
                 remover_elemento()
             case 3:
@@ -105,11 +117,13 @@ def run_code():
 
                 while True:
                     try:
+                        
                         certeza = str(input('Certeza que deseja encerrar?[S/N]: ')).lower()
-
+                        
                         if certeza != 's' and certeza != 'n': # <- Confere se o usuário digitou algo diferente de S ou N
                             print('\n[ERRO] Somente [S/N]!')
                             continue
+
                     except ValueError:
                         print('\n[ERRO] Valor inválido.\n')
                         continue
