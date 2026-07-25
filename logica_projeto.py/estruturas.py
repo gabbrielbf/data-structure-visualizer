@@ -43,6 +43,14 @@ def remover_elemento():
 
     return
 
+def exibir_elementos():
+
+    pilha_ou_fila.exibir_pilhas_ou_filas()
+    retorno, pilha_e_fila = pilha_ou_fila.selecionar_pilhas_ou_filas()
+
+    
+    return
+
 lista_pilhas = []
 lista_filas = []
 pilha_ou_fila = pilhas_ou_filas()
