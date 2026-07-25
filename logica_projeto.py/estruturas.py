@@ -10,9 +10,9 @@ def adicionar_elemento():
     pilha_ou_fila.exibir_pilhas_ou_filas()
     retorno, pilha_e_fila = pilha_ou_fila.selecionar_pilhas_ou_filas()
 
-    while True:
+    while True: 
         entrada = input('Qual elemento deseja adicionar: ')
-        if entrada == '' or not entrada.strip():
+        if entrada == '' or not entrada.strip(): # <- Bloco responsável por evitar que o usuário introduza espaços vazios na lista
             print('\n[ERRO] Espaços vazios não são permitidos!\n')
             continue
         else:
@@ -22,6 +22,8 @@ def adicionar_elemento():
     return entrada, retorno
 
 def remover_elemento():
+    """ função responsável pela remoção dos itens gerais, independente se é PILHA ou FILA pois o que definirá a remoção
+    será o retorno da variavel "retorno" presente no método da classe "selecionar_pilhas_ou_filas" """
 
     pilha_ou_fila.exibir_pilhas_ou_filas()
     retorno, pilha_e_fila = pilha_ou_fila.selecionar_pilhas_ou_filas()
@@ -32,8 +34,8 @@ def remover_elemento():
             print(f'Removemos o último item: {lista_pilhas[-1]}\n')
             lista_pilhas.pop()
         else:
-            print(f'\nA lista de {pilha_e_fila} está vazia!\n')
-    else:
+            print(f'\nA lista de {pilha_e_fila} está vazia!\n') # <- variável "pilha_e_fila" criada apenas para exibir dinâmicamente qual lista está
+    else:                                                       # sendo manipulada em tempo real
         if lista_filas:
             print('\nFila (FIFO – First In, First Out / O primeiro que entra é o primeiro a sair)')
             print(f'Removemos o primeiro item: {lista_filas[0]}\n')
@@ -44,6 +46,8 @@ def remover_elemento():
     return
 
 def exibir_elementos():
+    """ função responsável pela exibição dos itens
+    gerais seguindo a mesma lógica da função de remoção """
 
     pilha_ou_fila.exibir_pilhas_ou_filas()
     retorno, pilha_e_fila = pilha_ou_fila.selecionar_pilhas_ou_filas()
@@ -72,23 +76,25 @@ lista_filas = []
 pilha_ou_fila = pilhas_ou_filas()
 
 def run_code():
+    """ função responsável por pegar todas as funções definidas acima e fazê-las funcionar em conjunto com
+    um bloco de código que define o caminho do usuário atráves de decisões tomadas com base no "menu_enumerado" """
 
-    print(BANNER)
+    print(BANNER) # { esse bloco tem como finalidade dar uma conceituada ao usuário sobre a ideia e funcionamento por trás
     print(INTRO_TEXTO)
     limpar_tela()
     print(TEORIA_PILHA)
     print(DIVISOR)
-    print(TEORIA_FILA)
+    print(TEORIA_FILA) # } da lógica das PILHAS e FILAS na programação em geral.
 
     while True:
         limpar_tela()
         opcao = menu_numerado()
         match opcao:
             case 1:
-                elemento, retorno = adicionar_elemento()
+                elemento, retorno = adicionar_elemento() # <- Pega o elemento retornado na função
 
                 if retorno == 1:
-                    lista_pilhas.append(elemento)
+                    lista_pilhas.append(elemento) # <- Joga o elemento retornado em sua respectiva lista atráves da segunda variável retornada
                 else:
                     lista_filas.append(elemento)
             case 2 :
@@ -96,11 +102,12 @@ def run_code():
             case 3:
                 exibir_elementos()
             case 4:
+
                 while True:
                     try:
                         certeza = str(input('Certeza que deseja encerrar?[S/N]: ')).lower()
 
-                        if certeza != 's' and certeza != 'n':
+                        if certeza != 's' and certeza != 'n': # <- Confere se o usuário digitou algo diferente de S ou N
                             print('\n[ERRO] Somente [S/N]!')
                             continue
                     except ValueError:
@@ -108,10 +115,10 @@ def run_code():
                         continue
                     break
                 if certeza == 's':
-                    print('\nPrograma encerrado.\n')
+                    print('\nPrograma encerrado.\n') # <- ENCERRA
                     break
                 elif certeza == 'n':
-                    print('\nEntão vamos voltar!\n')
+                    print('\nEntão vamos voltar!\n') # <- VOLTA PARA O MENU
                     continue
 
 run_code()
