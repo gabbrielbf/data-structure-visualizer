@@ -20,7 +20,7 @@ class pilhas_ou_filas:
         while True:
 
             self.pilha_ou_fila = ler_opcao_numerica()
-            pilha_e_fila = None
+            self.pilha_e_fila = None
 
             if (self.pilha_ou_fila < 1 or
                 self.pilha_ou_fila > 2): # <- esse bloco de while true serve apenas para definir qual será o caminho traçado pelo usuário após
@@ -28,9 +28,9 @@ class pilhas_ou_filas:
                 continue
             else:
                 if self.pilha_ou_fila == 1:
-                    pilha_e_fila = 'Pilhas'
+                    self.pilha_e_fila = 'Pilhas'
                 else:
-                    pilha_e_fila = 'Filas'
+                    self.pilha_e_fila = 'Filas'
                 break
 
-        return self.pilha_ou_fila, pilha_e_fila
+        return self.pilha_ou_fila, self.pilha_e_fila
