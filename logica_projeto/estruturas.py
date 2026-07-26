@@ -1,9 +1,9 @@
 # estrutura dos dados
 from .menu import menu_numerado, limpar_tela # { usamos um "." depois do "from" para conseguir importar essas funções e métodos
-from .classes import pilhas_ou_filas # para o arquivo "main" e assim fazer com que ele funcione 
+from .classes import PilhasOuFilas # para o arquivo "main" e assim fazer com que ele funcione 
 from .lessons import * # } da forma mais enxuta possível, exibindo ao usuário somente o que é necessário
 
-def elemento():
+def obter_elemento():
     """ Função criada apenas para deixar o 
     médodo 1 da função "run_code" mais "enxuto" """
 
@@ -117,7 +117,7 @@ def encerrar_programa():
 
 lista_pilhas = []
 lista_filas = []
-pilha_ou_fila = pilhas_ou_filas()
+pilha_ou_fila = PilhasOuFilas()
 
 def run_code():
     """ função responsável por pegar todas as funções definidas acima e fazê-las funcionar em conjunto com
@@ -135,8 +135,8 @@ def run_code():
         opcao = menu_numerado()
         match opcao:
             case 1:
-                Elemento, retorno = elemento()
-                adicionar_elemento(Elemento, retorno)
+                elemento, retorno = obter_elemento()
+                adicionar_elemento(elemento, retorno)
             case 2 :
                 remover_elemento()
             case 3:

@@ -1,6 +1,6 @@
 from .menu import ler_opcao_numerica
 
-class pilhas_ou_filas:
+class PilhasOuFilas:
     """ classe separada para definir o tipo de lista a ser trabalhada """
 
     def __init__(self):
