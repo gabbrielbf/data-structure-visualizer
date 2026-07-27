@@ -28,5 +28,5 @@ Para aplicar conceitos de boas práticas e manter o código limpo, modular e de 
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git)
-   cd SEU_REPOSITORIO
+   git clone https://github.com/gabbrielbf/visualizador-estrutura-de-dados.git
+   cd visualizador-estrutura-de-dados
