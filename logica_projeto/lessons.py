@@ -20,11 +20,13 @@ Imagine uma pilha de pratos. O último prato que
 você coloca é o primeiro que você retira 
 (LIFO - Último a Entrar, Primeiro a Sair).
 Exemplo prático: O histórico do navegador 
-ou prório comando 'Desfazer' (Ctrl+Z)."""
+ou prório comando 'Desfazer' (Ctrl+Z).
+"""
 
 TEORIA_FILA = """--- O QUE É UMA FILA (QUEUE)? ---
 Imagine uma fila de banco. A primeira pessoa 
 que chega é a primeira a ser atendida 
 (FIFO - Primeiro a Entrar, Primeiro a Sair).
 Exemplo prático: Fila de impressão 
-ou atendimento de processos."""
+ou atendimento de processos.
+"""
