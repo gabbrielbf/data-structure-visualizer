@@ -21,7 +21,7 @@ def menu_numerado():
     """ função responsável pela exibição do menu numerado 
     e pelo retorno das opções para funcionamento do programa """
 
-    opcoes = ['Adicionar elemento', 'Remover elemento', 'Ver estado atual', 'Encerrar'] # <- lista criada apenas para exibição dinâmica
+    opcoes = ['Adicionar elemento', 'Remover elemento', 'Ver estado atual', 'Alternar entre Pilha/Fila','Encerrar'] # <- lista criada apenas para exibição dinâmica
 
     print('-'*30)
     for indice, opcao in enumerate(opcoes, start=1):
@@ -33,11 +33,51 @@ def menu_numerado():
         opcao = ler_opcao_numerica()
 
         if (opcao < 1 or 
-            opcao > 4): # <- esse bloco confere se o usuário digitou algo dentre as opções sugeridas antes de retornar o valor da função
+            opcao > 5): # <- esse bloco confere se o usuário digitou algo dentre as opções sugeridas antes de retornar o valor da função
             print('[ERRO] opção não encontrada\n')
             continue
         else:
             break
 
     return opcao
+
+def exibir_pilhas_ou_filas():
+        """ método responsável por apenas exibir qual será o tipo de lista a ser trabalhada """
+
+        opcoes = ['Pilhas', 'Filas'] # <- lista criada apenas para exibição dinâmica
+        
+        print('\nCom o que deseja trabalhar:')
+        print('-'*30)
+        for indice, lista in enumerate(opcoes, start=1):
+            print(f'{indice} - {lista}')
+        print('-'*30)
+
+        return
+
+def selecionar_pilhas_ou_filas():
+        """ método responsável por retornar um valor numérico e trabalhar encima desse retorno """
+
+        while True:
+
+            pilha_ou_fila = ler_opcao_numerica()
+
+            if (pilha_ou_fila < 1 or
+                pilha_ou_fila > 2): # <- esse bloco de while true serve apenas para definir qual será o caminho traçado pelo usuário após
+                print('[ERRO] opção não encontrada\n') # decidir qual opção dentre as opções, a partir daqui saberemos se ele quer trabalhar com pilhas ou filas
+                continue
+            else:
+                break
+            
+        return pilha_ou_fila
+
+def retornar_formatado(opcao):
+        """ método separada e "irrelevante" criada apenas 
+        para retonar uma exibição formatada e dinâmica ao usuário """
+
+        if opcao == 1:
+            pilha_e_fila = 'Pilhas'
+        else:   # <- esse bloco do else serve apenas para fazer uma exibição dinâmica no arquivo main
+            pilha_e_fila = 'Filas'
+
+        return pilha_e_fila
 

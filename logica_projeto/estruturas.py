@@ -1,6 +1,6 @@
 # estrutura dos dados
-from .menu import menu_numerado, limpar_tela # { usamos um "." depois do "from" para conseguir importar essas funções e métodos
-from .classes import EstruturaDeDados # para o arquivo "main" e assim fazer com que ele funcione 
+from .menu import menu_numerado, limpar_tela, exibir_pilhas_ou_filas, selecionar_pilhas_ou_filas, retornar_formatado # { usamos um "." depois do "from" para conseguir importar essas funções e métodos
+from .classes import Pilha, Fila # para o arquivo "main" e assim fazer com que ele funcione 
 from .lessons import * # } da forma mais enxuta possível, exibindo ao usuário somente o que é necessário
 
 import time
@@ -73,10 +73,6 @@ def remover_elemento():
     """ função responsável pela remoção dos itens gerais, independente se é PILHA ou FILA pois o que definirá a remoção
     será o retorno da variavel "retorno" presente no método da classe "selecionar_pilhas_ou_filas" """
 
-    pilha_ou_fila.exibir_pilhas_ou_filas()
-    retorno = pilha_ou_fila.selecionar_pilhas_ou_filas()
-    pilha_e_fila = pilha_ou_fila.retornar_formatado()
-
     if retorno == 1:
         if lista_pilhas:
             print('-'*30)
@@ -101,10 +97,6 @@ def remover_elemento():
 def exibir_elementos():
     """ função responsável pela exibição dos itens
     gerais seguindo a mesma lógica da função de remoção """
-
-    pilha_ou_fila.exibir_pilhas_ou_filas()
-    retorno = pilha_ou_fila.selecionar_pilhas_ou_filas()
-    pilha_e_fila = pilha_ou_fila.retornar_formatado()
 
     if retorno == 1:
         if lista_pilhas:
@@ -151,18 +143,42 @@ def encerrar_programa():
     
     return False
 
+def definir_estrutura():
+    """ função designada a selecionado o fluxo de manipulação das listas entre pilhas ou 
+    filas somente uma vez, tirando a necessidade de escolher sempre qual lista manipular """
+
+    estrutura_atual = None
+    
+    exibir_pilhas_ou_filas()
+    opcao = selecionar_pilhas_ou_filas()
+
+    if opcao == 1:
+        estrutura_atual = Pilha()
+    else:
+        estrutura_atual = Fila()
+
+    nome_formatado = retornar_formatado(opcao)
+
+    print('-'*30)
+    print(f'Iremos trabalhar com {nome_formatado}')
+
+    return estrutura_atual
+
 lista_pilhas = []
 lista_filas = []
-pilha_ou_fila = EstruturaDeDados()
 
 def run_code():
     """ função responsável por pegar todas as funções definidas acima e fazê-las funcionar em conjunto com
     um bloco de código que define o caminho do usuário atráves de decisões tomadas com base no "menu_enumerado" """
 
     lecionar_usuario()
+    estrutura_atual = definir_estrutura()
+
     while True:
+
         limpar_tela()
         opcao = menu_numerado()
+
         match opcao:
             case 1:
                 elemento, retorno = obter_elemento()
@@ -176,3 +192,4 @@ def run_code():
                     break
                 else:
                     continue
+    return
