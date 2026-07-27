@@ -1,6 +1,7 @@
 from .menu import ler_opcao_numerica
+from abc import ABC, abstractmethod
 
-class PilhasOuFilas:
+class EstruturaDeDados:
     """ classe separada para definir o tipo de lista a ser trabalhada """
 
     def __init__(self):
@@ -46,3 +47,11 @@ class PilhasOuFilas:
             self.pilha_e_fila = 'Filas'
 
         return self.pilha_e_fila
+
+
+class Pilha(EstruturaDeDados):
+    pass
+
+
+class Fila(EstruturaDeDados):
+    pass

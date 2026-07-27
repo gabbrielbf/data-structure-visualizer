@@ -1,6 +1,6 @@
 # estrutura dos dados
 from .menu import menu_numerado, limpar_tela # { usamos um "." depois do "from" para conseguir importar essas funções e métodos
-from .classes import PilhasOuFilas # para o arquivo "main" e assim fazer com que ele funcione 
+from .classes import EstruturaDeDados # para o arquivo "main" e assim fazer com que ele funcione 
 from .lessons import * # } da forma mais enxuta possível, exibindo ao usuário somente o que é necessário
 
 import time
@@ -28,13 +28,13 @@ def obter_elemento():
 def lecionar_usuario():
     """ exibição dinâmica e animada para 
     imersão do usuário ao conteúdo """
-    
+
     limpar_tela()
     print(DIVISOR) 
     for char in BANNER: # <- esse bloco exibe letra a letra do cabeçario
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.07)
+        time.sleep(0.06)
     print(DIVISOR)
     print(INTRO_TEXTO)
 
@@ -44,7 +44,7 @@ def lecionar_usuario():
     for char in TEORIA_PILHA:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.04)
+        time.sleep(0.03)
     print(DIVISOR)
 
     input('Press ENTER to continue...')
@@ -53,7 +53,7 @@ def lecionar_usuario():
     for char in TEORIA_FILA:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.04)
+        time.sleep(0.03)
     print(DIVISOR)
 
     return
@@ -153,7 +153,7 @@ def encerrar_programa():
 
 lista_pilhas = []
 lista_filas = []
-pilha_ou_fila = PilhasOuFilas()
+pilha_ou_fila = EstruturaDeDados()
 
 def run_code():
     """ função responsável por pegar todas as funções definidas acima e fazê-las funcionar em conjunto com
