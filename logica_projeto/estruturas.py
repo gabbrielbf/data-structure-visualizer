@@ -3,6 +3,9 @@ from .menu import menu_numerado, limpar_tela # { usamos um "." depois do "from" 
 from .classes import PilhasOuFilas # para o arquivo "main" e assim fazer com que ele funcione 
 from .lessons import * # } da forma mais enxuta possível, exibindo ao usuário somente o que é necessário
 
+import time
+import sys
+
 def obter_elemento():
     """ Função criada apenas para deixar o 
     médodo 1 da função "run_code" mais "enxuto" """
@@ -21,6 +24,32 @@ def obter_elemento():
             break
 
     return entrada, retorno
+
+def lecionar_usuario():
+    """ exibição dinâmica e animada para 
+    imersão do usuário ao conteúdo """
+
+    print(DIVISOR) 
+    for char in BANNER: # <- esse bloco exibe letra a letra do cabeçario
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.07)
+    print(DIVISOR)
+    print(INTRO_TEXTO)
+
+    limpar_tela()
+
+    print(DIVISOR)
+    print(TEORIA_PILHA)
+    print(DIVISOR)
+
+    limpar_tela()
+    
+    print(DIVISOR)
+    print(TEORIA_FILA) 
+    print(DIVISOR)
+
+    return
 
 def adicionar_elemento(elemento, retorno):
     """ função global para adicionar elementos 
@@ -123,13 +152,7 @@ def run_code():
     """ função responsável por pegar todas as funções definidas acima e fazê-las funcionar em conjunto com
     um bloco de código que define o caminho do usuário atráves de decisões tomadas com base no "menu_enumerado" """
 
-    print(BANNER) # { esse bloco tem como finalidade dar uma conceituada ao usuário sobre a ideia e funcionamento por trás
-    print(INTRO_TEXTO)
-    limpar_tela()
-    print(TEORIA_PILHA)
-    print(DIVISOR)
-    print(TEORIA_FILA) # } da lógica das PILHAS e FILAS na programação em geral.
-
+    lecionar_usuario()
     while True:
         limpar_tela()
         opcao = menu_numerado()
