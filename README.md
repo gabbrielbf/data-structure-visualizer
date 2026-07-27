@@ -16,3 +16,17 @@ Para aplicar conceitos de boas práticas e manter o código limpo, modular e de 
 * **`logica_projeto/lessons.py`**: Arquivo dedicado a armazenar os textos educativos, conceitos teóricos (LIFO e FIFO) e banners do sistema.
 
 ---
+
+## 💡 Conceitos Demonstrados
+
+* **Pilha (LIFO - Last In, First Out):** O último elemento a entrar é o primeiro a ser removido (exemplo: pilha de pratos ou histórico de navegação).
+* **Fila (FIFO - First In, First Out):** O primeiro elemento a entrar é o primeiro a ser removido (exemplo: fila de banco ou fila de impressão).
+
+---
+
+## 🚀 Como rodar na sua máquina
+
+1. **Clone o repositório:**
+   ```bash
+   git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git)
+   cd SEU_REPOSITORIO
