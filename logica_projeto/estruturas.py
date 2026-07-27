@@ -28,7 +28,8 @@ def obter_elemento():
 def lecionar_usuario():
     """ exibição dinâmica e animada para 
     imersão do usuário ao conteúdo """
-
+    
+    limpar_tela()
     print(DIVISOR) 
     for char in BANNER: # <- esse bloco exibe letra a letra do cabeçario
         sys.stdout.write(char)
@@ -40,13 +41,19 @@ def lecionar_usuario():
     limpar_tela()
 
     print(DIVISOR)
-    print(TEORIA_PILHA)
+    for char in TEORIA_PILHA:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.04)
     print(DIVISOR)
 
-    limpar_tela()
-    
+    input('Press ENTER to continue...')
+
     print(DIVISOR)
-    print(TEORIA_FILA) 
+    for char in TEORIA_FILA:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.04)
     print(DIVISOR)
 
     return
