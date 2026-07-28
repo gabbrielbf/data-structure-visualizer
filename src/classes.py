@@ -1,69 +1,69 @@
 from abc import ABC, abstractmethod
 
-class EstruturaDeDados(ABC):
-    """ classe separada para definir o tipo de lista a ser trabalhada """
+class DataStructure(ABC):
+    """ separate class to define the type of list to be worked with """
 
     def __init__(self):
-        self._itens = [] # <- iniciando uma lista vazia na classe pai para que as filhas apenas implementem o modo de lidar com sua respectiva lista
+        self._items = [] # <- starting an empty list in the parent class so that child classes only implement the way to handle their respective
         return
 
-    def exibir_itens(self):
-        """ método global de exibição dos itens pois 
-        ambas as listas usam a mesma lógica para exibir seus elementos"""
+    def display_items(self):
+        """ global method for displaying items because
+        both lists use the same logic to display their elements"""
 
-        if self._itens:
-            print(f'\nExibindo a lista de {self.__class__.__name__}:') # <- essa linha exibe em tempo real o nome da lista a ser manipulada
-            print('-'*30)
-            for indice, item in enumerate(self._itens, start=1):
-                print(f'{indice} - {item} ({type(item).__name__})') # <- exibindo a posição, item e o tipo de dado do item adicionado
-            print('-'*30)
+        if self._items:
+            print(f'\nDisplaying the list of {self.__class__.__name__}:')  # <- this line displays in real time the name of the list to be manipulated
+            print('-' * 30)
+            for index, item in enumerate(self._items, start=1):
+                print(f'{index} - {item} ({type(item)})')  # <- displaying the position, item, and the data type of the added item
+            print('-' * 30)
         else:
-            print(f'\nA lista de {self.__class__.__name__} está vazia!\n')
+            print(f'\nThe list of {self.__class__.__name__} is empty!\n')
 
     @abstractmethod
-    def adicionar_item(self, item):
-        """ método global para adicionar elementos 
-            independente do tipo de lista """
+    def add_item(self, item):
+        """ global method for adding elements
+        regardless of the list type """
         pass
 
     @abstractmethod
-    def remover_item(self):
-        """ método responsável pela remoção dos itens gerais, independente se é PILHA ou FILA pois 
-        o que definirá a remoção será o a própria classe em si instânciada no programa procedual """
+    def remove_item(self):
+        """ method responsible for general item removal, regardless of whether it is a STACK or QUEUE because
+        what will define the removal will be the instantiated class itself in the procedural program """
         pass
 
 
-class Pilhas(EstruturaDeDados):
+class Stacks(DataStructure):
 
-    def adicionar_item(self, item):
-        self._itens.append(item)
+    def add_item(self, item):
+        self._items.append(item)
         return 
 
-    def remover_item(self):
-        if self._itens:
+    def remove_item(self):
+        if self._items:
             print('-'*30)
-            print('Pilha (LIFO – Last In, First Out / O último que entra é o primeiro a sair)')
-            print(f'Removemos o último item: {self._itens[-1]}')
+            print('Stack (LIFO - Last In, First Out)')
+            print(f'Removed the last item: {self._items[-1]}')
             print('-'*30)
-            self._itens.pop()
+            self._items.pop()
         else:
-            print(f'\nA lista de {self.__class__.__name__} está vazia!\n')
+            print(f'\nThe list of {self.__class__.__name__} is empty!\n')
         return 
 
 
-class Filas(EstruturaDeDados):
+class Queues(DataStructure):
 
-    def adicionar_item(self, item):
-        self._itens.append(item)
+    def add_item(self, item):
+        self._items.append(item)
         return 
 
-    def remover_item(self):
-        if self._itens:
+    def remove_item(self):
+        if self._items:
             print('-'*30)
-            print('Fila (FIFO – First In, First Out / O primeiro que entra é o primeiro a sair)')
-            print(f'Removemos o primeiro item: {self._itens[0]}')
+            print('Queue (FIFO - First In, First Out / First in is the first out)')
+            print(f'We removed the first item: {self._items[0]}')
             print('-'*30)
-            self._itens.pop(0)
+            self._items.pop(0)
         else:
-            print(f'\nA lista de {self.__class__.__name__} está vazia!\n')
-        return 
+            print(f'\nThe {self.__class__.__name__} list is empty!\n')
+        return
