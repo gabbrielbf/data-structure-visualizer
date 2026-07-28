@@ -1,2 +1,2 @@
-# O arquivo __init__ está completamente vazio, ele serve apenas para avisar o Python que a pasta logica_projeto é um pacote, e assim
-# conseguir rodar todos os arquivos presentes nesta pasta.
+# The __init__ file is completely empty; its only purpose is to notify Python that the project_logic folder is a package,
+# thus allowing all files inside this folder to be executed.
