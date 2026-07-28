@@ -1,32 +1,31 @@
-# no arquivo lessons.py
-DIVISOR = """====================================================="""
+DIVIDER = """====================================================="""
 
-BANNER = """  🚀 BEM-VINDO AO SIMULADOR DE PILHAS E FILAS! 🚀
+BANNER = """  🚀  WELCOME TO THE STACK AND QUEUE SIMULATOR! 🚀
 """
 
-INTRO_TEXTO = """
-Este programa interativo foi desenvolvido para demonstrar 
-na prática como funcionam duas das estruturas de dados 
-mais importantes na computação:
+INTRO_TEXT = """
+This interactive program was developed to demonstrate
+in practice how two of the most important data structures
+in computing work:
 
-  📌 PILHAS (Stack - LIFO: Last In, First Out)
-  📌 FILAS  (Queue - FIFO: First In, First Out)
+📌 STACKS (Stack - LIFO: Last In, First Out)
+📌 QUEUES (Queue - FIFO: First In, First Out)
 """
 
-# no arquivo lessons.py
+# THEORY in lessons.py file
 
-TEORIA_PILHA = """-----------> O QUE É UMA PILHA (STACK)? <------------
-Imagine uma pilha de pratos. O último prato que 
-você coloca é o primeiro que você retira 
-(LIFO - Último a Entrar, Primeiro a Sair).
-Exemplo prático: O histórico do navegador 
-ou prório comando 'Desfazer' (Ctrl+Z).
+STACK_THEORY = """-----------> WHAT IS A STACK? <-----------
+Imagine a stack of plates. The last plate that
+you place is the first one you remove
+(LIFO - Last In, First Out).
+Practical example: Browser history
+or the 'Undo' command itself (Ctrl+Z).
 """
 
-TEORIA_FILA = """-----------> O QUE É UMA FILA (QUEUE)? <-------------
-Imagine uma fila de banco. A primeira pessoa 
-que chega é a primeira a ser atendida 
-(FIFO - Primeiro a Entrar, Primeiro a Sair).
-Exemplo prático: Fila de impressão 
-ou atendimento de processos.
+QUEUE_THEORY = """-----------> WHAT IS A QUEUE? <-----------
+Imagine a bank queue. The first person
+who arrives is the first to be served
+(FIFO - First In, First Out).
+Practical example: Print queue
+or process scheduling.
 """
