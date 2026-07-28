@@ -4,12 +4,15 @@ class EstruturaDeDados(ABC):
     """ classe separada para definir o tipo de lista a ser trabalhada """
 
     def __init__(self):
-        self._itens = [] # iniciando uma lista vazia na classe pai para que as filhas apenas implementem o modo de lidar com sua respectiva lista
+        self._itens = [] # <- iniciando uma lista vazia na classe pai para que as filhas apenas implementem o modo de lidar com sua respectiva lista
         return
 
     def exibir_itens(self):
+        """ método global de exibição dos itens pois 
+        ambas as listas usam a mesma lógica para exibir seus elementos"""
+
         if self._itens:
-            print(f'\nExibindo a lista de {self.__class__.__name__}:')
+            print(f'\nExibindo a lista de {self.__class__.__name__}:') # <- essa linha exibe em tempo real o nome da lista a ser manipulada
             print('-'*30)
             for indice, item in enumerate(self._itens, start=1):
                 print(f'{indice} - {item}')
