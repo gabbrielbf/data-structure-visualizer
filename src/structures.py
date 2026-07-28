@@ -1,157 +1,155 @@
-# estrutura dos dados
-from .menu import menu_numerado, limpar_tela, exibir_pilhas_ou_filas, selecionar_pilhas_ou_filas, retornar_formatado # { usamos um "." depois do "from" para conseguir importar essas funções e métodos
-from .classes import Pilhas, Filas # para o arquivo "main" e assim fazer com que ele funcione 
-from .lessons import * # } da forma mais enxuta possível, exibindo ao usuário somente o que é necessário
+# data structure
+from .menu import numbered_menu, clear_terminal, display_stacks_or_queues, select_stacks_or_queues, return_formatted # { we use a "." after "from" to be able to import these functions and methods
+from .classes import Stacks, Queues # for the "main" file and thus make it work 
+from .lessons import * # } in the cleanest way possible, displaying to the user only what is necessary
 
-import time # <- time: responsável pela pausa dentre os caracteres presentes nas variáveis lessons.py
-import sys # <- sys: trabalha em conjunto com (time) para exibir letra a letra das strings em lessons.py
-import ast # <- ast: converte o tipo de caractere escrito na função (obter_elemento) para int, float, bool ou str
+import time # <- time: responsible for the pause between characters present in the lessons.py variables
+import sys # <- sys: works together with (time) to display character by character of the strings in lessons.py
+import ast # <- ast: converts the character type typed in the function (get_element) to int, float, bool or str
 
 
-def obter_elemento(estrutura):
-    """ Função criada apenas para deixar o 
-    médodo 1 da função "run_code" mais "enxuto" """
+def get_element(structure):
+    """ function created only to make
+    method 1 of the "run_code" function cleaner """
 
     while True:
-        entrada = input('Qual elemento deseja adicionar: ')
-        if entrada == '' or not entrada.strip(): # <- Bloco responsável por evitar que o usuário introduza espaços vazios na lista
-            print('\n[ERRO] Espaços vazios não são permitidos!\n')
+        user_input = input('Which element would you like to add: ')
+        if user_input == '' or not user_input.strip(): # <- Block responsible for preventing the user from introducing empty spaces into the list
+            print('\n[ERROR] Empty spaces are not allowed!\n')
             continue
         else:
-            try: # <- tenta converter para o tipo primitivo nativo (int, float, bool, etc)
-                
-                entrada_convertida = ast.literal_eval(entrada.strip())
+            try: # <- tries to convert to native primitive type (int, float, bool, etc)
 
-            except (ValueError, SyntaxError): # <- se não converter, significa que é uma string normal!
+                converted_input = ast.literal_eval(user_input.strip())
 
-                entrada_convertida = entrada.strip() # <- esse método .strip() garante que mesmo appós passar pela primeira verificação de espaços vazios
-                                                     # <- o usuário não irá conseguir acrescentar uma string com espaço vazio no inicio ou fim da entrada
+            except (ValueError, SyntaxError): # <- if it doesn't convert, it means it's a normal string!
 
-            tipo_dado = type(entrada_convertida).__name__ # <- essa variável pega o nome do tipo de dado escrito na entrada acima e exibe para o usuário abaixo
-            nome_estrutura = estrutura.__class__.__name__ # <- essa variável serve apenas para fazer uma exibição de nome da lista dinâmica 
+                converted_input = user_input.strip() # <- this .strip() method ensures that even after passing through the first empty spaces check
+                # <- the user will not be able to add a string with empty space at the beginning or end of the input
 
-            print(f'\nO elemento {entrada_convertida} ({tipo_dado}) foi adicionado a lista de {nome_estrutura} ✔️\n') # ao usuáro sobre qual lista estamos manipulando
+            data_type = type(converted_input).__name__ # <- this variable gets the name of the data type written in the input above and displays it to the user below
+            structure_name = structure.__class__.__name__ # <- this variable only serves to make a dynamic list name display
+
+            print(f'\nThe element {converted_input} ({data_type}) was added to the {structure_name} list ✔\n') # saw to the user about which list we are manipulating
             break
 
-    return entrada
+    return user_input
 
-def lecionar_usuario():
-    """ exibição dinâmica e animada para 
-    imersão do usuário ao conteúdo """
+def teach_user():
+    """ dynamic and animated display for
+    user immersion into the content """
 
-    limpar_tela()
-    print(DIVISOR) 
-    for char in BANNER: # <- esse bloco exibe letra a letra do cabeçario
+    clear_terminal()
+    print(DIVIDER)
+    for char in BANNER: # <- this block displays letter by letter of the header
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.06)
-    print(DIVISOR)
-    print(INTRO_TEXTO)
+    print(DIVIDER)
+    print(INTRO_TEXT)
 
-    limpar_tela()
+    clear_terminal()
 
-    print(DIVISOR)
-    for char in TEORIA_PILHA:
+    print(DIVIDER)
+    for char in STACK_THEORY:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.03)
-    print(DIVISOR)
+    print(DIVIDER)
 
     input('Press ENTER to continue...')
 
-    print(DIVISOR)
-    for char in TEORIA_FILA:
+    print(DIVIDER)
+    for char in QUEUE_THEORY:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.03)
-    print(DIVISOR)
+    print(DIVIDER)
 
     return
 
-    return
-
-def encerrar_programa():
-    """ função que encerra (ou não) o programa de 
-    acordo com uma interação do usuário """
+def exit_program():
+    """ function that exits (or not) the program
+    according to a user interaction """
 
     while True:
         try:
-            
-            certeza = str(input('Certeza que deseja encerrar?[S/N]: ')).lower()
-            
-            if certeza != 's' and certeza != 'n': # <- Confere se o usuário digitou algo diferente de S ou N
-                print('\n[ERRO] Somente [S/N]!')
+
+            certainty = str(input('Are you sure you want to exit?[Y/N]: ')).lower().strip()
+
+            if certainty != 'y' and certainty != 'n': # <- Checks if the user typed something other than Y or N
+                print('\n[ERROR] Only [Y/N]!')
                 continue
 
         except ValueError:
-            print('\n[ERRO] Valor inválido.\n')
+            print('\n[ERROR] Invalid value.\n')
             continue
         break
 
-    if certeza == 's':
-        print('\nPrograma encerrado.\n') # <- ENCERRA
+    if certainty == 'y':
+        print('\nProgram ended.\n') # <- EXITS
         return True
-    
-    elif certeza == 'n':
-        print('\nEntão vamos voltar!\n') # <- VOLTA PARA O MENU
-    
+
+    elif certainty == 'n':
+        print('\nThen let\'s go back!\n') # <- GOES BACK TO THE MENU
+
     return False
 
-def definir_estrutura(pilhas, filas):
-    """ função designada a selecionar o fluxo de manipulação das listas entre pilhas ou 
-    filas somente uma vez, tirando a necessidade de escolher sempre qual lista manipular """
+def set_structure(stacks, queues):
+    """ function designated to select the manipulation flow of the lists between stacks or
+    queues only once, removing the need to always choose which list to manipulate """
 
-    estrutura_atual = None
-    
-    exibir_pilhas_ou_filas()
-    opcao = selecionar_pilhas_ou_filas() # <- seleciona qual lista manipular dentre PILHAS ou FILAS
+    current_structure = None
 
-    if opcao == 1: # <- CASO 1 - PILHAS
-        estrutura_atual = pilhas
-    else: # OUTRO CASO (no caso 2) - FILAS
-        estrutura_atual = filas
+    display_stacks_or_queues()
+    option = select_stacks_or_queues() # <- selects which list to manipulate between STACKS or QUEUES
 
-    nome_formatado = retornar_formatado(opcao)
+    if option == 1: # <- CASE 1 - STACKS
+        current_structure = stacks
+    else: # OTHER CASE (in this case 2) - QUEUES
+        current_structure = queues
+
+    formatted_name = return_formatted(option)
 
     print('-'*30)
-    print(f'Iremos trabalhar com {nome_formatado}')
+    print(f'We will work with {formatted_name}')
 
-    return estrutura_atual # <- retorna a estrutura atual para seguir com o programa trabalhando na sua respectiva lista
+    return current_structure # <- returns the current structure to continue with the program working on its respective list
 
 def run_code():
-    """ função responsável por pegar todas as funções definidas acima e fazê-las funcionar em conjunto com
-    um bloco de código que define o caminho do usuário atráves de decisões tomadas com base no "menu_enumerado" """
+    """ function responsible for taking all functions defined above and making them work together with
+    a code block that defines the user's path through decisions made based on the "numbered_menu" """
 
-    pilhas = Pilhas() # { objeto criados para trabalharem em conjunto com a função "definir_estrutura", ela irá pega-los como parâmetro
-    filas = Filas() # } e alternar em tempo real de acordo com a decisao do (match - opção == 4)
+    stacks = Stacks() # { objects created to work together with the "set_structure" function, it will take them as parameters
+    queues = Queues() # } and switch in real time according to the decision from (match - option == 4)
 
-    lecionar_usuario()
+    teach_user()
     input('Press ENTER to continue...')
-    estrutura_atual = definir_estrutura(pilhas, filas)
+    current_structure = set_structure(stacks, queues)
 
     while True:
 
-        limpar_tela()
+        clear_terminal()
         print('-'*30)
-        print(f'Trabalhando com: {estrutura_atual.__class__.__name__}')
-        opcao = menu_numerado()
+        print(f'Working with: {current_structure.__class__.__name__}')
+        option = numbered_menu()
 
-        match opcao:
+        match option:
             case 1:
-                elemento = obter_elemento(estrutura_atual)
-                estrutura_atual.adicionar_item(elemento)
-            case 2 :
-                estrutura_atual.remover_item()
+                element = get_element(current_structure)
+                current_structure.add_item(element)
+            case 2:
+                current_structure.remove_item()
             case 3:
-                estrutura_atual.exibir_itens()
+                current_structure.display_items()
             case 4:
-                if isinstance(estrutura_atual, Pilhas): # <- # se a estrutura atual for a Pilha, troca para a Fila (e vice-versa)
-                    estrutura_atual = filas
+                if isinstance(current_structure, Stacks): # <- # if the current structure is a Stack, switch to Queue (and vice versa)
+                    current_structure = queues
                 else:
-                    estrutura_atual = pilhas
-                print(f"\nAlternado!\nAgora iremos trabalhar com: {estrutura_atual.__class__.__name__}\n")
+                    current_structure = stacks
+                print(f"\nSwitched!\nNow we will work with: {current_structure.__class__.__name__}\n")
             case 5:
-                if encerrar_programa() == True:
+                if exit_program() == True:
                     break
                 else:
                     continue
