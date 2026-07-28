@@ -15,7 +15,7 @@ class DataStructure(ABC):
             print(f'\nDisplaying the list of {self.__class__.__name__}:')  # <- this line displays in real time the name of the list to be manipulated
             print('-' * 30)
             for index, item in enumerate(self._items, start=1):
-                print(f'{index} - {item} ({type(item)})')  # <- displaying the position, item, and the data type of the added item
+                print(f'{index} - {item} ({type(item).__name__})')  # <- displaying the position, item, and the data type of the added item
             print('-' * 30)
         else:
             print(f'\nThe list of {self.__class__.__name__} is empty!\n')
