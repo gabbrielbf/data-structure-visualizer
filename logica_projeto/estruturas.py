@@ -113,11 +113,14 @@ def run_code():
     filas = Filas() # } e alternar em tempo real de acordo com a decisao do (match - opção == 4)
 
     lecionar_usuario()
+    input('Press ENTER to continue...')
     estrutura_atual = definir_estrutura(pilhas, filas)
 
     while True:
 
         limpar_tela()
+        print('-'*30)
+        print(f'Trabalhando com: {estrutura_atual.__class__.__name__}')
         opcao = menu_numerado()
 
         match opcao:
