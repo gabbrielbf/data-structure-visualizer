@@ -1,32 +1,32 @@
-# 🚀 Visualizador de Estrutura de Dados (Pilhas e Filas)
+# 🚀 Data Structure Visualizer (Stacks and Queues)
 
-Este é um projeto desenvolvido para fins de estudo no 1º semestre do curso de Análise e Desenvolvimento de Sistemas (ADS). A ideia foi criar um simulador interativo em **Python** via terminal para visualizar, na prática, o funcionamento de duas das estruturas de dados lineares mais fundamentais da computação: **Pilhas (Stack - LIFO)** e **Filas (Queue - FIFO)**.
+This project was developed for study purposes during the 1st semester of the Systems Analysis and Development (SAD) course. The idea was to create an interactive simulator in **Python** via terminal to visualize, in practice, the operation of two of the most fundamental linear data structures in computing: **Stacks (LIFO)** and **Queues (FIFO)**.
 
-O sistema conta com menus interativos, conceitos teóricos integrados e validações de entrada para garantir uma navegação fluida e sem erros em tempo real.
-
----
-## 🛠️ Como o projeto funciona?
-
-Para aplicar conceitos de boas práticas e manter o código limpo, modular e de fácil manutenção, a lógica foi totalmente separada por responsabilidades:
-
-* **`main.py`**: Ponto de entrada da aplicação, encarregado de iniciar o programa mantendo o escopo encapsulado.
-* **`logica_projeto/estruturas.py`**: Motor principal que gerencia a execução do programa (`run_code`) e as operações nas estruturas (adicionar, remover e exibir).
-* **`logica_projeto/classes.py`**: Contém as abstrações e representações necessárias para o gerenciamento dos tipos de dados.
-* **`logica_projeto/menu.py`**: Centraliza os utilitários de interface via terminal, como menus numerados, leitura validada de dados e limpeza de tela.
-* **`logica_projeto/lessons.py`**: Arquivo dedicado a armazenar os textos educativos, conceitos teóricos (LIFO e FIFO) e banners do sistema.
+The system features interactive menus, integrated theoretical concepts, and input validations to ensure smooth, error-free navigation in real time.
 
 ---
+## 🛠️ How does the project work?
 
-## 💡 Conceitos Demonstrados
+To apply best practice concepts and maintain clean, modular, and easy-to-maintain code, the logic was fully separated by responsibilities:
 
-* **Pilha (LIFO - Last In, First Out):** O último elemento a entrar é o primeiro a ser removido (exemplo: pilha de pratos ou histórico de navegação).
-* **Fila (FIFO - First In, First Out):** O primeiro elemento a entrar é o primeiro a ser removido (exemplo: fila de banco ou fila de impressão).
+* **`main.py`**: Entry point of the application, responsible for starting the program while keeping the scope encapsulated.
+* **`src/structures.py`**: Main engine managing program execution (`run_code`) and operations on the structures (add, remove, and display).
+* **`src/classes.py`**: Contains the necessary abstractions and representations for data type management.
+* **`src/menu.py`**: Centralizes terminal interface utilities, such as numbered menus, validated data reading, and screen clearing.
+* **`src/lessons.py`**: Dedicated file for storing educational texts, theoretical concepts (LIFO and FIFO), and system banners.
 
 ---
 
-## 🚀 Como rodar na sua máquina
+## 💡 Demonstrated Concepts
 
-1. **Clone o repositório:**
+* **Stack (LIFO - Last In, First Out):** The last element to enter is the first to be removed (example: stack of plates or browser history).
+* **Queue (FIFO - First In, First Out):** The first element to enter is the first to be removed (example: bank line or print queue).
+
+---
+
+## 🚀 How to run it on your machine
+
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/gabbrielbf/visualizador-estrutura-de-dados.git
-   cd visualizador-estrutura-de-dados
+   git clone [https://github.com/gabbrielbf/data-structure-visualizer.git](https://github.com/gabbrielbf/data-structure-visualizer.git)
+   cd data-structure-visualizer
