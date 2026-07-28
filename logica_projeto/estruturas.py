@@ -103,14 +103,14 @@ def definir_estrutura(pilhas, filas):
     print('-'*30)
     print(f'Iremos trabalhar com {nome_formatado}')
 
-    return estrutura_atual
+    return estrutura_atual # <- retorna a estrutura atual para seguir com o programa trabalhando na sua respectiva lista
 
 def run_code():
     """ função responsável por pegar todas as funções definidas acima e fazê-las funcionar em conjunto com
     um bloco de código que define o caminho do usuário atráves de decisões tomadas com base no "menu_enumerado" """
 
-    pilhas = Pilhas()
-    filas = Filas()
+    pilhas = Pilhas() # { objeto criados para trabalharem em conjunto com a função "definir_estrutura", ela irá pega-los como parâmetro
+    filas = Filas() # } e alternar em tempo real de acordo com a decisao do (match - opção == 4)
 
     lecionar_usuario()
     estrutura_atual = definir_estrutura(pilhas, filas)
