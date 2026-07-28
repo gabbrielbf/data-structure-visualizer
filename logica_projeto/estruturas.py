@@ -84,7 +84,7 @@ def encerrar_programa():
     
     return False
 
-def definir_estrutura():
+def definir_estrutura(pilhas, filas):
     """ função designada a selecionar o fluxo de manipulação das listas entre pilhas ou 
     filas somente uma vez, tirando a necessidade de escolher sempre qual lista manipular """
 
@@ -94,9 +94,9 @@ def definir_estrutura():
     opcao = selecionar_pilhas_ou_filas() # <- seleciona qual lista manipular dentre PILHAS ou FILAS
 
     if opcao == 1: # <- CASO 1 - PILHAS
-        estrutura_atual = Pilhas()
-    else: # OUTRO CASO, NO CASO 2 - FILAS
-        estrutura_atual = Filas()
+        estrutura_atual = pilhas
+    else: # OUTRO CASO (no caso 2) - FILAS
+        estrutura_atual = filas
 
     nome_formatado = retornar_formatado(opcao)
 
@@ -109,8 +109,11 @@ def run_code():
     """ função responsável por pegar todas as funções definidas acima e fazê-las funcionar em conjunto com
     um bloco de código que define o caminho do usuário atráves de decisões tomadas com base no "menu_enumerado" """
 
+    pilhas = Pilhas()
+    filas = Filas()
+
     lecionar_usuario()
-    estrutura_atual = definir_estrutura()
+    estrutura_atual = definir_estrutura(pilhas, filas)
 
     while True:
 
@@ -126,7 +129,11 @@ def run_code():
             case 3:
                 estrutura_atual.exibir_itens()
             case 4:
-                pass
+                if isinstance(estrutura_atual, Pilhas): # <- # se a estrutura atual for a Pilha, troca para a Fila (e vice-versa)
+                    estrutura_atual = filas
+                else:
+                    estrutura_atual = pilhas
+                print(f"\nAlternado!\nAgora iremos trabalhar com: {estrutura_atual.__class__.__name__}\n")
             case 5:
                 if encerrar_programa() == True:
                     break
