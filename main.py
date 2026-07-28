@@ -1,4 +1,4 @@
-from logica_projeto.estruturas import run_code 
+from src.structures import run_code 
 
 def main():
     """ função que irá rodar o programa para o usuário de forma que ele consiga apenas
