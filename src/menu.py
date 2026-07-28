@@ -1,83 +1,88 @@
 import os
 
-def ler_opcao_numerica():
-    """ função responsável por retornar uma opção numérica sem haver
-    necessidade de ficar tratando cada try e except inteiro separadamente """
+def read_numeric_option():
+    """ function responsible for returning a numeric option to avoid
+    handling try-except blocks individually throughout the code """
 
     while True:
         try:
-            return int(input('Escolha uma dentre as opções acima -> '))
+            return int(input('Choose one of the options above -> '))
         except ValueError:
-            print('[ERRO] opção não encontrada\n')
+            print('[ERROR] Invalid option\n')
             continue
 
-def limpar_tela():
-    """ limpa a tela para manter a interface organizada """
+def clear_terminal():
+    """ clears the terminal screen to keep the interface organized """
 
     input('Press ENTER to continue...')
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def menu_numerado():
-    """ função responsável pela exibição do menu numerado 
-    e pelo retorno das opções para funcionamento do programa """
+def numbered_menu():
+    """ displays the numbered menu and returns the valid selected option """
 
-    opcoes = ['Adicionar elemento', 'Remover elemento', 'Ver estado atual', 'Alternar entre Pilha/Fila','Encerrar'] # <- lista criada apenas para exibição dinâmica
+    options = [
+        'Add element',
+        'Remove element',
+        'View current state',
+        'Switch Stack/Queue',
+        'Exit'
+    ]  # <- list created for dynamic menu rendering
 
     print('-'*30)
-    for indice, opcao in enumerate(opcoes, start=1):
-        print(f'{indice} - {opcao}') # <- esse bloco foi feito do jeito que está apenas para
-    print('-'*30)                   #  poupar espaço e não ter que lotar o inicio da função de 'prints'
+    for index, option in enumerate(options, start=1):
+        print(f'{index} - {option}') # <- this block was made this way just to
+    print('-'*30)                   # save space and not clutter the start of the function with 'prints'
 
     while True:
         
-        opcao = ler_opcao_numerica()
+        option = read_numeric_option()
 
-        if (opcao < 1 or 
-            opcao > 5): # <- esse bloco confere se o usuário digitou algo dentre as opções sugeridas antes de retornar o valor da função
-            print('[ERRO] opção não encontrada\n')
+        if (option < 1 or 
+            option > 5): # <- this block checks if the user entered something within the suggested options before returning the function value
+            print('[ERROR] option not found\n')
             continue
         else:
             break
 
-    return opcao
+    return option
 
-def exibir_pilhas_ou_filas():
-        """ método responsável por apenas exibir qual será o tipo de lista a ser trabalhada """
+def display_stacks_or_queues():
+        """ method responsible only for displaying which list type will be used """
 
-        opcoes = ['Pilhas', 'Filas'] # <- lista criada apenas para exibição dinâmica
+        options = ['Stacks', 'Queues'] # <- list created only for dynamic display
         
-        print('\nCom o que deseja trabalhar:')
+        print('\nWhat would you like to work with:')
         print('-'*30)
-        for indice, lista in enumerate(opcoes, start=1):
-            print(f'{indice} - {lista}')
+        for index, list_type in enumerate(options, start=1):
+            print(f'{index} - {list_type}')
         print('-'*30)
 
         return
 
-def selecionar_pilhas_ou_filas():
-        """ método responsável por retornar um valor numérico e trabalhar encima desse retorno """
+def select_stacks_or_queues():
+    """ method responsible for returning a numeric value and working based on this return """
 
-        while True:
+    while True:
 
-            pilha_ou_fila = ler_opcao_numerica()
+        stack_or_queue = read_numeric_option()
 
-            if (pilha_ou_fila < 1 or
-                pilha_ou_fila > 2): # <- esse bloco de while true serve apenas para definir qual será o caminho traçado pelo usuário após
-                print('[ERRO] opção não encontrada\n') # decidir qual opção dentre as opções, a partir daqui saberemos se ele quer trabalhar com pilhas ou filas
-                continue
-            else:
-                break
-            
-        return pilha_ou_fila
+        if (stack_or_queue < 1 or
+            stack_or_queue > 2): # <- this while true block only serves to define which path will be taken by the user after
+            print('[ERROR] option not found\n') # deciding which option among the options, from here on we will know if they want to work with stacks or queues
+            continue
+        else:
+            break
 
-def retornar_formatado(opcao):
-        """ método separada e "irrelevante" criada apenas 
-        para retonar uma exibição formatada e dinâmica ao usuário """
+    return stack_or_queue
 
-        if opcao == 1:
-            pilha_e_fila = 'Pilhas'
-        else:   # <- esse bloco do else serve apenas para fazer uma exibição dinâmica no arquivo main
-            pilha_e_fila = 'Filas'
+def return_formatted(option):
+    """ separate and "irrelevant" method created only
+    to return a formatted and dynamic display to the user """
 
-        return pilha_e_fila
+    if option == 1:
+        stack_and_queue = 'Stacks'
+    else:  # <- this else block only serves to make a dynamic display in the main file
+        stack_and_queue = 'Queues'
+
+    return stack_and_queue
 

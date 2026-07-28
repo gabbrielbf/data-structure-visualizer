@@ -9,7 +9,7 @@ class DataStructure(ABC):
 
     def display_items(self):
         """ global method for displaying items because
-        both lists use the same logic to display their elements"""
+        both lists use the same logic to display their elements """
 
         if self._items:
             print(f'\nDisplaying the list of {self.__class__.__name__}:')  # <- this line displays in real time the name of the list to be manipulated
