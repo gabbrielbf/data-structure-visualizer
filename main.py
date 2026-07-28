@@ -1,10 +1,10 @@
 from src.structures import run_code 
 
 def main():
-    """ função que irá rodar o programa para o usuário de forma que ele consiga apenas
-    usar o run sem conseguir usufruir das demais funções e métodos presentes no arquivo "estruturas.py" """
+    """ function that will run the program for the user so that they can only
+    use run without being able to make use of the other functions and methods present in the "strucures.py" file """
 
-    run_code() # <- não tem mistério, a mágica funciona toda por trás dos panos
+    run_code() # <- no secret here, all the magic works behind the scenes
 
     return
 
