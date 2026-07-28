@@ -6,7 +6,7 @@ from .lessons import * # } da forma mais enxuta possível, exibindo ao usuário 
 import time
 import sys
 
-def obter_elemento():
+def obter_elemento(estrutura):
     """ Função criada apenas para deixar o 
     médodo 1 da função "run_code" mais "enxuto" """
 
@@ -16,7 +16,8 @@ def obter_elemento():
             print('\n[ERRO] Espaços vazios não são permitidos!\n')
             continue
         else:
-            print(f'\nO elemento [{entrada}] foi adicionado a lista de {pilha_e_fila} ✔️\n')
+            nome_estrutura = estrutura.__class__.__name__ # <- essa variável serve apenas para fazer uma exibição de nome dinâmica 
+            print(f'\nO elemento [{entrada}] foi adicionado a lista de {nome_estrutura} ✔️\n') # ao usuáro sobre qual lista estamos manipulando
             break
 
     return entrada
@@ -57,6 +58,9 @@ def lecionar_usuario():
     return
 
 def encerrar_programa():
+    """ função que encerra (ou não) o programa de 
+    acordo com uma interação do usuário """
+
     while True:
         try:
             
@@ -81,17 +85,17 @@ def encerrar_programa():
     return False
 
 def definir_estrutura():
-    """ função designada a selecionado o fluxo de manipulação das listas entre pilhas ou 
+    """ função designada a selecionar o fluxo de manipulação das listas entre pilhas ou 
     filas somente uma vez, tirando a necessidade de escolher sempre qual lista manipular """
 
     estrutura_atual = None
     
     exibir_pilhas_ou_filas()
-    opcao = selecionar_pilhas_ou_filas()
+    opcao = selecionar_pilhas_ou_filas() # <- seleciona qual lista manipular dentre PILHAS ou FILAS
 
-    if opcao == 1:
+    if opcao == 1: # <- CASO 1 - PILHAS
         estrutura_atual = Pilhas()
-    else:
+    else: # OUTRO CASO, NO CASO 2 - FILAS
         estrutura_atual = Filas()
 
     nome_formatado = retornar_formatado(opcao)
@@ -115,11 +119,10 @@ def run_code():
 
         match opcao:
             case 1:
-                elemento = obter_elemento()
+                elemento = obter_elemento(estrutura_atual)
                 estrutura_atual.adicionar_item(elemento)
             case 2 :
-                item_removido = estrutura_atual.remover_item()
-                print(f'Item removido: [{item_removido}]')
+                estrutura_atual.remover_item()
             case 3:
                 estrutura_atual.exibir_itens()
             case 4:
