@@ -22,7 +22,7 @@ def get_element(structure):
             except (ValueError, SyntaxError): # <- if it doesn't convert, it means it's a normal string!
 
                 converted_input = user_input.strip() # <- this .strip() method ensures that even after passing through the first empty spaces check
-                # <- the user will not be able to add a string with empty space at the beginning or end of the input
+                                                    # <- the user will not be able to add a string with empty space at the beginning or end of the input
 
             data_type = type(converted_input).__name__ # <- this variable gets the name of the data type written in the input above and displays it to the user below
             structure_name = structure.__class__.__name__ # <- this variable only serves to make a dynamic list name display
