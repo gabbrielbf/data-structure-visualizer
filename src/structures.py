@@ -3,10 +3,7 @@ from .menu import numbered_menu, clear_terminal, display_stacks_or_queues, selec
 from .classes import Stacks, Queues # for the "main" file and thus make it work 
 from .lessons import * # } in the cleanest way possible, displaying to the user only what is necessary
 
-import time # <- time: responsible for the pause between characters present in the lessons.py variables
-import sys # <- sys: works together with (time) to display character by character of the strings in lessons.py
-import ast # <- ast: converts the character type typed in the function (get_element) to int, float, bool or str
-
+import time, sys, ast # <- this 3 libraries work together in teach_user to print lessons.py character-by-character
 
 def get_element(structure):
     """ function created only to make
@@ -33,7 +30,7 @@ def get_element(structure):
             print(f'\nThe element {converted_input} ({data_type}) was added to the {structure_name} list ✔\n') # saw to the user about which list we are manipulating
             break
 
-    return user_input
+    return converted_input
 
 def teach_user():
     """ dynamic and animated display for
