@@ -3,8 +3,10 @@ from .menu import menu_numerado, limpar_tela, exibir_pilhas_ou_filas, selecionar
 from .classes import Pilhas, Filas # para o arquivo "main" e assim fazer com que ele funcione 
 from .lessons import * # } da forma mais enxuta possível, exibindo ao usuário somente o que é necessário
 
-import time
-import sys
+import time # <- time: responsável pela pausa dentre os caracteres presentes nas variáveis lessons.py
+import sys # <- sys: trabalha em conjunto com (time) para exibir letra a letra das strings em lessons.py
+import ast # <- ast: converte o tipo de caractere escrito na função (obter_elemento) para int, float, bool ou str
+
 
 def obter_elemento(estrutura):
     """ Função criada apenas para deixar o 
@@ -16,8 +18,19 @@ def obter_elemento(estrutura):
             print('\n[ERRO] Espaços vazios não são permitidos!\n')
             continue
         else:
-            nome_estrutura = estrutura.__class__.__name__ # <- essa variável serve apenas para fazer uma exibição de nome dinâmica 
-            print(f'\nO elemento [{entrada}] foi adicionado a lista de {nome_estrutura} ✔️\n') # ao usuáro sobre qual lista estamos manipulando
+            try: # <- tenta converter para o tipo primitivo nativo (int, float, bool, etc)
+                
+                entrada_convertida = ast.literal_eval(entrada.strip())
+
+            except (ValueError, SyntaxError): # <- se não converter, significa que é uma string normal!
+
+                entrada_convertida = entrada.strip() # <- esse método .strip() garante que mesmo appós passar pela primeira verificação de espaços vazios
+                                                     # <- o usuário não irá conseguir acrescentar uma string com espaço vazio no inicio ou fim da entrada
+
+            tipo_dado = type(entrada_convertida).__name__ # <- essa variável pega o nome do tipo de dado escrito na entrada acima e exibe para o usuário abaixo
+            nome_estrutura = estrutura.__class__.__name__ # <- essa variável serve apenas para fazer uma exibição de nome da lista dinâmica 
+
+            print(f'\nO elemento {entrada_convertida} ({tipo_dado}) foi adicionado a lista de {nome_estrutura} ✔️\n') # ao usuáro sobre qual lista estamos manipulando
             break
 
     return entrada
