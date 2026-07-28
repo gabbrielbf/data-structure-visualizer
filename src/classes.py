@@ -15,7 +15,7 @@ class EstruturaDeDados(ABC):
             print(f'\nExibindo a lista de {self.__class__.__name__}:') # <- essa linha exibe em tempo real o nome da lista a ser manipulada
             print('-'*30)
             for indice, item in enumerate(self._itens, start=1):
-                print(f'{indice} - {item}')
+                print(f'{indice} - {item} ({type(item).__name__})') # <- exibindo a posição, item e o tipo de dado do item adicionado
             print('-'*30)
         else:
             print(f'\nA lista de {self.__class__.__name__} está vazia!\n')
