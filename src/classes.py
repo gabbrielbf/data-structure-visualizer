@@ -3,9 +3,17 @@ from abc import ABC, abstractmethod
 class DataStructure(ABC):
     """ separate class to define the type of list to be worked with """
 
-    def __init__(self):
+    def __init__(self, capacity=None): # <- defaulting to None if the user doesn't want to limit items
         self._items = [] # <- starting an empty list in the parent class so that child classes only implement the way to handle their respective
+        self._capacity = capacity # <- add new attribute to store maximum limit,
         return
+
+    def is_full(self):
+        """ checks if the structure has reached its maximum capacity """
+
+        if self._capacity is None:
+            return False
+        return len(self._items) >= self._capacity
 
     def display_items(self):
         """ global method for displaying items because
