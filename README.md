@@ -1,6 +1,4 @@
-<div display="flex" align="right">
-  <a href="README_pt-BR.md">🇧🇷 Português</a> | <a href="README.md">🇬🇧 English</a>
-</div>
+[🇧🇷 Português](./README.pt-BR.md) | [🇬🇧 English](./README.md)
 
 # 🚀 Data Structure Visualizer (Stacks and Queues)
 
