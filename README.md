@@ -1,3 +1,8 @@
+<p align="right">
+  <a href="README_pt-BR.md">🇧🇷 Português</a> | 
+  <a href="README.md">🇬🇧 English</a>
+</p>
+
 # 🚀 Data Structure Visualizer (Stacks and Queues)
 
 This project was developed for study purposes during the 1st semester of the Systems Analysis and Development (SAD) course. The idea was to create an interactive simulator in **Python** via terminal to visualize, in practice, the operation of two of the most fundamental linear data structures in computing: **Stacks (LIFO)** and **Queues (FIFO)**.
