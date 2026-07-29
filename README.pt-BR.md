@@ -24,3 +24,11 @@ Para aplicar conceitos de boas práticas e manter um código limpo, modular e f�
 * **`src/lessons.py`**: Arquivo dedicado ao armazenamento de textos educacionais, conceitos teóricos (LIFO e FIFO) e banners do sistema.
 
 ---
+
+## 💡 Conceitos Demonstrados
+
+* **Pilha (LIFO - Last In, First Out / Último a Entrar, Primeiro a Sair):** O último elemento a entrar é o primeiro a ser removido (exemplo: pilha de pratos ou histórico do navegador).
+* **Fila (FIFO - First In, First Out / Primeiro a Entrar, Primeiro a Sair):** O primeiro elemento a entrar é o primeiro a ser removido (exemplo: fila de banco ou fila de impressão).
+
+---
+
