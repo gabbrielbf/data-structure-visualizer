@@ -32,3 +32,9 @@ Para aplicar conceitos de boas práticas e manter um código limpo, modular e f�
 
 ---
 
+## 🚀 Como executar na sua máquina
+
+1. **Clone o repositório:**
+   ```bash
+   git clone [https://github.com/gabbrielbf/data-structure-visualizer.git](https://github.com/gabbrielbf/data-structure-visualizer.git)
+   cd data-structure-visualizer
