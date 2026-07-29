@@ -1,5 +1,9 @@
 [🇧🇷 Português](./README.pt-BR.md) | [🇬🇧 English](./README.md)
 
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+</p>
+
 # 🚀 Visualizador de Estruturas de Dados (Pilhas e Filas)
 
 Este projeto foi desenvolvido para fins de estudo durante o 1º semestre do curso de Análise e Desenvolvimento de Sistemas (ADS). A ideia foi criar um simulador interativo em **Python** via terminal para visualizar, na prática, o funcionamento de duas das estruturas de dados lineares mais fundamentais da computação: **Pilhas (LIFO)** e **Filas (FIFO)**.
@@ -26,6 +30,10 @@ Para aplicar conceitos de boas práticas e manter um código limpo, modular e f�
 * **Fila (FIFO - First In, First Out / Primeiro a Entrar, Primeiro a Sair):** O primeiro elemento a entrar é o primeiro a ser removido (exemplo: fila de banco ou fila de impressão).
 
 ---
+
+## 📃 Licença
+
+Esse projeto está sob a licença MIT.
 
 ## 🚀 Como executar na sua máquina
 
