@@ -8,6 +8,11 @@ class DataStructure(ABC):
         self._capacity = capacity # <- add new attribute to store maximum limit,
         return
 
+    @abstractmethod
+    def peek_item(self):
+        """ global method to view the next item without removing it """
+        pass
+
     def is_full(self):
         """ checks if the structure has reached its maximum capacity """
 
