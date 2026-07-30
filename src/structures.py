@@ -2,6 +2,7 @@
 from .menu import numbered_menu, clear_terminal, display_stacks_or_queues, select_stacks_or_queues, return_formatted # { we use a "." after "from" to be able to import these functions and methods
 from .classes import Stacks, Queues # for the "main" file and thus make it work 
 from .lessons import * # } in the cleanest way possible, displaying to the user only what is necessary
+from .database import DatabaseManager # <- importing the database manager class
 
 import time, sys, ast # <- this 3 libraries work together in teach_user to print lessons.py character-by-character
 
@@ -136,6 +137,11 @@ def run_code():
     """ function responsible for taking all functions defined above and making them work together with
     a code block that defines the user's path through decisions made based on the "numbered_menu" """
 
+    # instantiating the database manager
+    db = DatabaseManager()
+
+    saved_data = db.load_data() # <- loading previous saved data automatically when the program starts
+
     teach_user()
     input('Press ENTER to continue...')
     print(DIVIDER)
@@ -173,9 +179,17 @@ def run_code():
                     current_structure = stacks
                 print(f"\nSwitched!\nNow we will work with: {current_structure.__class__.__name__}\n")
             case 6:
+                # save data to JSON option
+                db.save_data(stacks._items, queues._items)
+            case 7:
+                # load data from JSON option
+                reloaded_data = db.load_data()
+                stacks._items = reloaded_data.get("stacks", [])
+                queues._items = reloaded_data.get("queues", [])
+                print("\n[INFO] Data successfully reloaded from file ✔\n")
+            case 8:
                 if exit_program() == True:
                     break
                 else:
                     continue
-
     return
