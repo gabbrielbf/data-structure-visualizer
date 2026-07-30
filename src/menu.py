@@ -23,11 +23,13 @@ def numbered_menu():
     options = [
         'Add element',
         'Remove element',
-        'View next element (Peek)', # <- new option
+        'View next element (Peek)',
         'View current state',
         'Switch Stack/Queue',
+        'Save data to JSON',  # <- new option responsable to save lists
+        'Load data from JSON', # <- new option, load lists
         'Exit'
-    ]  # <- list created for dynamic menu rendering
+    ]
 
     print('-'*30)
     for index, option in enumerate(options, start=1):
@@ -39,7 +41,7 @@ def numbered_menu():
         option = read_numeric_option()
 
         if (option < 1 or 
-            option > 6): # <- this block checks if the user entered something within the suggested options before returning the function value
+            option > 8): # <- this block checks if the user entered something within the suggested options before returning the function value
             print('[ERROR] option not found\n')
             continue
         else:
