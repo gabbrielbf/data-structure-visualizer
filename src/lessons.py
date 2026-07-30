@@ -1,13 +1,13 @@
 DIVIDER = '=' * 60
 
-_temp_stack = """🚀 WELCOME TO THE STACK AND QUEUE SIMULATOR! 🚀"""
+_temp_stack = """🚀  WELCOME TO THE STACK AND QUEUE SIMULATOR! 🚀"""
 
 # _temp_stack.splitlines(): splits the original text into a list of lines (if there are line breaks)
 # l.center(60): Centers each line individually, padding the empty spaces to a total width of up to 60 columns
 # "\n".join(...): Joins all the centered lines back together into a single string, 
 # separating them with line breaks (\n), ensuring the entire banner block is perfectly aligned in the terminal.
 
-BANNER = "\n".join(l.center(60) for l in _temp_stack.splitlines())
+BANNER = "\n".join(l.center(57) for l in _temp_stack.splitlines())
 
 INTRO_TEXT = """This interactive program was developed to demonstrate
 in practice how two of the most important data structures

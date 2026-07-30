@@ -20,7 +20,7 @@ def get_capacity():
                 print('\n[ERROR] Capacity must be greater than zero!\n')
                 continue
             
-            print(f'"Now, the list type (to be selected) will accept only [{capacity}] elements.')
+            print(f'Now, the list type (to be selected) will accept only [{capacity}] elements.')
             return capacity
         
         except ValueError:
@@ -44,13 +44,7 @@ def get_element(structure):
             except (ValueError, SyntaxError): # <- if it doesn't convert, it means it's a normal string!
 
                 converted_input = user_input.strip() # <- this .strip() method ensures that even after passing through the first empty spaces check
-                                                    # <- the user will not be able to add a string with empty space at the beginning or end of the input
-
-            data_type = type(converted_input).__name__ # <- this variable gets the name of the data type written in the input above and displays it to the user below
-            structure_name = structure.__class__.__name__ # <- this variable only serves to make a dynamic list name display
-
-            print(f'\nThe element {converted_input} ({data_type}) was added to the {structure_name} list ✔\n') # saw to the user about which list we are manipulating
-            break
+            break                                    # the user will not be able to add a string with empty space at the beginning or end of the input
 
     return converted_input
 
@@ -63,7 +57,7 @@ def teach_user():
     for char in BANNER: # <- this block displays letter by letter of the header
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.06)
+        time.sleep(0.04)
     print()
     print(DIVIDER)
     print(INTRO_TEXT)
@@ -74,7 +68,7 @@ def teach_user():
     for char in STACK_THEORY:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.03)
+        time.sleep(0.02)
     print()
     print(DIVIDER)
 
@@ -84,7 +78,7 @@ def teach_user():
     for char in QUEUE_THEORY:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.03)
+        time.sleep(0.02)
     print()
     print(DIVIDER)
 
@@ -154,7 +148,6 @@ def run_code():
     queues = Queues(capacity=max_capacity) # } and switch in real time according to the decision from (match - option == 4)
     
     current_structure = set_structure(stacks, queues)
-    input('Press ENTER to continue...')
 
     while True:
 

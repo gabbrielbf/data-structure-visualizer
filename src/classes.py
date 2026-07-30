@@ -48,6 +48,12 @@ class Stacks(DataStructure):
             print(f'\n[ERROR] Stack Overflow! The {self.__class__.__name__} is full (Max: {self._capacity}).\n')
             return False
         self._items.append(item)
+
+        data_type = type(item).__name__ # <- this variable gets the name of the data type written in the input above and displays it to the user below
+        structure_name = self.__class__.__name__ # <- this variable only serves to make a dynamic list name display
+
+        print(f'\nThe element {item} ({data_type}) was added to the {structure_name} list ✔\n') # saw to the user about which list we are manipulating
+
         return True
 
     def remove_item(self):
@@ -66,9 +72,14 @@ class Queues(DataStructure):
 
     def add_item(self, item):
         if self.is_full():
-            print(f'\n[ERROR] Queue Overflow! The {self.__class__.__name__} is full (Max: {self._capacity}).\n')
+            print(f'[ERROR] Queue Overflow! The {self.__class__.__name__} is full (Max: {self._capacity}).\n')
             return False
         self._items.append(item)
+
+        data_type = type(item).__name__
+        structure_name = self.__class__.__name__ 
+
+        print(f'\nThe element {item} ({data_type}) was added to the {structure_name} list ✔\n') 
         return True # <- return boolean to indicate success status of add_item
 
     def remove_item(self):
