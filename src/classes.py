@@ -44,8 +44,11 @@ class DataStructure(ABC):
 class Stacks(DataStructure):
 
     def add_item(self, item):
+        if self.is_full(): # <- this block check item count before returning to add_item
+            print(f'\n[ERROR] Stack Overflow! The {self.__class__.__name__} is full (Max: {self._capacity}).\n')
+            return False
         self._items.append(item)
-        return 
+        return True
 
     def remove_item(self):
         if self._items:
@@ -62,8 +65,11 @@ class Stacks(DataStructure):
 class Queues(DataStructure):
 
     def add_item(self, item):
+        if self.is_full():
+            print(f'\n[ERROR] Queue Overflow! The {self.__class__.__name__} is full (Max: {self._capacity}).\n')
+            return False
         self._items.append(item)
-        return 
+        return True # <- return boolean to indicate success status of add_item
 
     def remove_item(self):
         if self._items:
