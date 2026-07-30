@@ -62,6 +62,7 @@ def teach_user():
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.06)
+    print()
     print(DIVIDER)
     print(INTRO_TEXT)
 
@@ -72,6 +73,7 @@ def teach_user():
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.03)
+    print()
     print(DIVIDER)
 
     input('Press ENTER to continue...')
@@ -81,6 +83,7 @@ def teach_user():
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.03)
+    print()
     print(DIVIDER)
 
     return
@@ -137,18 +140,17 @@ def run_code():
     """ function responsible for taking all functions defined above and making them work together with
     a code block that defines the user's path through decisions made based on the "numbered_menu" """
 
-    print('-'*30)
-    print('Configuration of Structure Capacity')
-    print('-'*0)
-    max_capacity = get_capacity()
+    teach_user()
     input('Press ENTER to continue...')
+    print(DIVIDER)
+    print('Configuration of Structure Capacity'.center(60))
+    print(DIVIDER)
+    max_capacity = get_capacity()
 
     # pass capacity as a parameter inside the created objects
     stacks = Stacks(capacity=max_capacity) # { objects created to work together with the "set_structure" function, it will take them as parameters
     queues = Queues(capacity=max_capacity) # } and switch in real time according to the decision from (match - option == 4)
     
-    teach_user()
-    input('Press ENTER to continue...')
     current_structure = set_structure(stacks, queues)
     input('Press ENTER to continue...')
 
