@@ -5,6 +5,11 @@ from .lessons import * # } in the cleanest way possible, displaying to the user 
 
 import time, sys, ast # <- this 3 libraries work together in teach_user to print lessons.py character-by-character
 
+def get_capacity():
+    """ function to read the maximum capacity defined by the user """
+    
+    return
+
 def get_element(structure):
     """ function created only to make
     method 1 of the "run_code" function cleaner """
