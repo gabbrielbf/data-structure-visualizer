@@ -7,8 +7,23 @@ import time, sys, ast # <- this 3 libraries work together in teach_user to print
 
 def get_capacity():
     """ function to read the maximum capacity defined by the user """
-    
-    return
+
+    while True:
+        try:
+            user_input = input('Enter the maximum capacity (or press ENTER for unlimited): ').strip()
+            if user_input == '' or not user_input.strip():
+                return None # <- no limit
+            
+            capacity = int(user_input)
+
+            if capacity <= 0:
+                print('\n[ERROR] Capacity must be greater than zero!\n')
+                continue
+            return capacity
+        
+        except ValueError:
+            print('\n[ERROR] Invalid number!\n')
+            continue
 
 def get_element(structure):
     """ function created only to make
