@@ -61,6 +61,16 @@ class Stacks(DataStructure):
 
         return True
 
+    def peek_item(self):
+        if self._items:
+            print('-'*30)
+            print('Stack (LIFO - Peek)')
+            print(f'Next item to be removed (Top): {self._items[-1]} ({type(self._items[-1]).__name__})')
+            print('-'*30)
+        else:
+            print(f'\nThe list of {self.__class__.__name__} is empty!\n')
+        return
+
     def remove_item(self):
         if self._items:
             print('-'*30)
@@ -86,6 +96,16 @@ class Queues(DataStructure):
 
         print(f'\nThe element {item} ({data_type}) was added to the {structure_name} list ✔\n') 
         return True # <- return boolean to indicate success status of add_item
+
+    def peek_item(self):
+        if self._items:
+            print('-'*30)
+            print('Queue (FIFO - Peek)')
+            print(f'Next item to be served (Front): {self._items[0]} ({type(self._items[0]).__name__})')
+            print('-'*30)
+        else:
+            print(f'\nThe {self.__class__.__name__} list is empty!\n')
+        return
 
     def remove_item(self):
         if self._items:

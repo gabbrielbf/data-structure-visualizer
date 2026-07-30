@@ -163,14 +163,16 @@ def run_code():
             case 2:
                 current_structure.remove_item()
             case 3:
-                current_structure.display_items()
+                current_structure.peek_item()
             case 4:
+                current_structure.display_items()
+            case 5:
                 if isinstance(current_structure, Stacks): # <- # if the current structure is a Stack, switch to Queue (and vice versa)
                     current_structure = queues
                 else:
                     current_structure = stacks
                 print(f"\nSwitched!\nNow we will work with: {current_structure.__class__.__name__}\n")
-            case 5:
+            case 6:
                 if exit_program() == True:
                     break
                 else:

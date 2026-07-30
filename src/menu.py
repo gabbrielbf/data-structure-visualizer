@@ -23,6 +23,7 @@ def numbered_menu():
     options = [
         'Add element',
         'Remove element',
+        'View next element (Peek)', # <- new option
         'View current state',
         'Switch Stack/Queue',
         'Exit'
@@ -38,7 +39,7 @@ def numbered_menu():
         option = read_numeric_option()
 
         if (option < 1 or 
-            option > 5): # <- this block checks if the user entered something within the suggested options before returning the function value
+            option > 6): # <- this block checks if the user entered something within the suggested options before returning the function value
             print('[ERROR] option not found\n')
             continue
         else:
