@@ -19,6 +19,8 @@ def get_capacity():
             if capacity <= 0:
                 print('\n[ERROR] Capacity must be greater than zero!\n')
                 continue
+            
+            print(f'"Now, the list type (to be selected) will accept only [{capacity}] elements.')
             return capacity
         
         except ValueError:
