@@ -59,7 +59,7 @@ To apply best practice concepts and maintain clean, modular, and easy-to-maintai
 
 ## 📃 License
 
-Esse projeto está sob a licença MIT.
+This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more details.
 
 ---
 

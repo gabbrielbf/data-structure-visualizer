@@ -60,7 +60,7 @@ Para aplicar conceitos de boas práticas e manter um código limpo, modular e f�
 
 ## 📃 Licença
 
-Esse projeto está sob a licença MIT.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes. 
 
 ## 🚀 Como executar na sua máquina
 
