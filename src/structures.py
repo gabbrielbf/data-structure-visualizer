@@ -143,7 +143,7 @@ def run_code():
     saved_data = db.load_data() # <- loading previous saved data automatically when the program starts
 
     teach_user()
-    input('Press ENTER to continue...')
+    clear_terminal()
     print(DIVIDER)
     print('Configuration of Structure Capacity'.center(60))
     print(DIVIDER)
