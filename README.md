@@ -4,6 +4,31 @@
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
 </p>
 
+<p align="center">
+  <table align="center">
+    <tr>
+      <td align="center">
+        <img src="./assets/welcome.png" alt="Tela 2" width="400px"><br>
+        <sub><b>Introduction</b></sub>
+      </td>
+      <td align="center">
+        <img src="./assets/capacity_and_stackrs_or_queues.png" alt="Tela 1" width="400px"><br>
+        <sub><b>Capacity configuration and selection of which list to manipulate</b></sub>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="./assets/menu.png" alt="Tela 3" width="400px"><br>
+        <sub><b>Numeric menu</b></sub>
+      </td>
+      <td align="center">
+        <img src="./assets/upload_to_database.png" alt="Tela 4" width="400px"><br>
+        <sub><b>Adiction to database .json</b></sub>
+      </td>
+    </tr>
+  </table>
+</p>
+
 # 🚀 Data Structure Visualizer (Stacks and Queues)
 
 This project was developed for study purposes during the 1st semester of the Systems Analysis and Development (SAD) course. The idea was to create an interactive simulator in **Python** via terminal to visualize, in practice, the operation of two of the most fundamental linear data structures in computing: **Stacks (LIFO)** and **Queues (FIFO)**.

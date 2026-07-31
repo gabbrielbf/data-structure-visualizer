@@ -4,6 +4,31 @@
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
 </p>
 
+<p align="center">
+  <table align="center">
+    <tr>
+      <td align="center">
+        <img src="./assets/welcome.png" alt="Tela 2" width="400px"><br>
+        <sub><b>Introdução</b></sub>
+      </td>
+      <td align="center">
+        <img src="./assets/capacity_and_stackrs_or_queues.png" alt="Tela 1" width="400px"><br>
+        <sub><b>Configuração de capacidade e seleção de qual lista manipular</b></sub>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="./assets/menu.png" alt="Tela 3" width="400px"><br>
+        <sub><b>Menu numérico</b></sub>
+      </td>
+      <td align="center">
+        <img src="./assets/upload_to_database.png" alt="Tela 4" width="400px"><br>
+        <sub><b>Adição ao banco de dados .json</b></sub>
+      </td>
+    </tr>
+  </table>
+</p>
+
 # 🚀 Visualizador de Estruturas de Dados (Pilhas e Filas)
 
 Este projeto foi desenvolvido para fins de estudo durante o 1º semestre do curso de Análise e Desenvolvimento de Sistemas (ADS). A ideia foi criar um simulador interativo em **Python** via terminal para visualizar, na prática, o funcionamento de duas das estruturas de dados lineares mais fundamentais da computação: **Pilhas (LIFO)** e **Filas (FIFO)**.
