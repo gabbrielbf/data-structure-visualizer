@@ -40,3 +40,20 @@ def test_queue_behavior():
 
     return
 
+def test_capacity_overflow():
+    """ tests if the stack correctly blocks 
+    elements when reaching maximum capacity """
+
+    stack = Stacks(capacity=2) # <- creates a stack with a small capacity limit of 2
+
+    res1 = stack.add_item(10) # { adds elements up 
+    res2 = stack.add_item(20) # } to the limit
+
+    assert res1 == True # { verifies that both 
+    assert res2 == True # } additions were successful
+
+    res3 = stack.add_item(30) # <- tries to add a third element, which should exceed capacity
+
+    assert res3 == False # <- verifies that the addition was blocked (returns False due to overflow)
+
+    return
