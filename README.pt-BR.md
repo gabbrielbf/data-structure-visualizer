@@ -21,6 +21,8 @@ Para aplicar conceitos de boas práticas e manter um código limpo, modular e f�
 * **`src/classes.py`**: Contém as abstrações e representações necessárias para o gerenciamento dos tipos de dados.
 * **`src/menu.py`**: Centraliza utilitários de interface de terminal, como menus numerados, leitura de dados validada e limpeza de tela.
 * **`src/lessons.py`**: Arquivo dedicado ao armazenamento de textos educacionais, conceitos teóricos (LIFO e FIFO) e banners do sistema.
+* **`src/database.py`**: Responsável pela lógica de subir os itens presentes em sua respectiva lista para um mini banco de dados .json gerado automaticamente pelo sistema caso não exista um. Em conjunto a isso possui também um método encarregado de 'baixar' os itens existentes nos dicionários criados dentro do database.json e armazena-los novamente em suas devidas posições independente da lista.
+* **`tests/*`**: Pasta definida para testar as funcionalidades dos arquivos individualmente sem necessidade de rodar o programa inteiro para encontrar um bug.
 
 ---
 
