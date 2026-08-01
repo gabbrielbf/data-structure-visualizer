@@ -44,7 +44,7 @@ def get_element(structure):
 
             except (ValueError, SyntaxError): # <- if it doesn't convert, it means it's a normal string!
 
-                converted_input = user_input.strip() # <- this .strip() method ensures that even after passing through the first empty spaces check
+                converted_input = user_input.strip().title() # <- this .strip() method ensures that even after passing through the first empty spaces check
             break                                    # the user will not be able to add a string with empty space at the beginning or end of the input
 
     return converted_input
